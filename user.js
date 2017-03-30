@@ -3,13 +3,26 @@
  * Originally from https://github.com/pyllyukko/user.js                       *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * purposes. I removed a some of the comments too, to make it readable.       *
- * Date: 2017-03-15                                                           *
+ * Date: 2017-03-30                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  ******************************************************************************/
 /*******************************************************************************
  findbar.modalHighlight = true
  findbar.highlightAll = true
  ******************************************************************************/
+
+// Fix font rendering
+// https://github.com/renkun-ken/MacType.Source/blob/master/README.md
+
+user_pref("gfx.font_loader.delay",												-1);
+user_pref("gfx.font_rendering.cleartype.always_use_for_content",				true);
+user_pref("gfx.font_rendering.cleartype_params.cleartype_level",				100);
+user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast",				100);
+user_pref("gfx.font_rendering.cleartype_params.gamma",							1400);
+user_pref("gfx.font_rendering.cleartype_params.pixel_structure",				1);
+user_pref("gfx.font_rendering.cleartype_params.rendering_mode",					5);
+user_pref("gfx.font_rendering.fallback.always_use_cmaps",						true);
+user_pref("gfx.use_text_smoothing_setting",										true);
 
 // https://wiki.mozilla.org/Platform/GFX/HardwareAcceleration
 // https://www.macromedia.com/support/documentation/en/flashplayer/help/help01.html
@@ -78,6 +91,17 @@ user_pref("social.remote-install.enabled",				false);
 user_pref("social.toast-notifications.enabled",				false);
 user_pref("social.share.activationPanelEnabled",				false);
 
+
+user_pref("browser.search.update",				false);
+user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",				false);
+user_pref("browser.urlbar.doubleClickSelectsAll",				false);
+user_pref("browser.urlbar.suggest.searches",				false);
+user_pref("browser.urlbar.suggest.bookmark",				true);
+user_pref("browser.urlbar.suggest.history",				true);
+user_pref("browser.urlbar.suggest.openpage",				true);
+
+user_pref("browser.search.countryCode",				"");
+user_pref("browser.search.region",				"");
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
