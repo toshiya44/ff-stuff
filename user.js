@@ -3,7 +3,7 @@
  * Originally from https://github.com/pyllyukko/user.js                       *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * purposes. I removed a some of the comments too, to make it readable.       *
- * Date: 2017-03-30                                                           *
+ * Date: 2017-09-09                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  ******************************************************************************/
 /*******************************************************************************
@@ -14,15 +14,29 @@
 // Fix font rendering
 // https://github.com/renkun-ken/MacType.Source/blob/master/README.md
 
-user_pref("gfx.font_loader.delay",												-1);
+//user_pref("gfx.font_loader.delay",  											-1);
 user_pref("gfx.font_rendering.cleartype.always_use_for_content",				true);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level",				100);
-user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast",				100);
-user_pref("gfx.font_rendering.cleartype_params.gamma",							1400);
+user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast",  			100);
+user_pref("gfx.font_rendering.cleartype_params.gamma",  						1400);
 user_pref("gfx.font_rendering.cleartype_params.pixel_structure",				1);
-user_pref("gfx.font_rendering.cleartype_params.rendering_mode",					5);
+user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 				5);
 user_pref("gfx.font_rendering.fallback.always_use_cmaps",						true);
-user_pref("gfx.use_text_smoothing_setting",										true);
+user_pref("gfx.use_text_smoothing_setting", 									true);
+
+// probably due to my system local being jp, the font loading is in a disarry.
+// this is a temporary fix, until i figure out how this thingy works
+user_pref("font.default.x-unicode", "sans-serif");
+user_pref("font.default.x-western", "sans-serif");
+user_pref("font.internaluseonly.changed", false);
+user_pref("font.name.monospace.ja", "Consolas");
+user_pref("font.name.monospace.x-western", "Consolas");
+user_pref("font.name.sans-serif.ja", "Arial");
+user_pref("font.name.sans-serif.x-unicode", "Arial");
+user_pref("font.name.sans-serif.x-western", "Arial");
+user_pref("font.name.serif.ja", "Arial");
+user_pref("font.name.serif.x-unicode", "Arial");
+user_pref("font.name.serif.x-western", "Arial");
 
 // https://wiki.mozilla.org/Platform/GFX/HardwareAcceleration
 // https://www.macromedia.com/support/documentation/en/flashplayer/help/help01.html
@@ -42,10 +56,8 @@ user_pref("geo.wifi.uri",				"");
 user_pref("geo.wifi.logging.enabled",		false);
 user_pref("browser.newtabpage.directory.source",				"");
 
-// * user-agent (using umatrix for this)
-// * user_pref("general.useragent.override",		"Mozilla/5.0 (Windows NT 6.3; rv:50.0) Gecko/20100101 Firefox/50.0");
-
 user_pref("media.autoplay.enabled",			false);
+user_pref("media.ffmpeg.enabled",			false);
 user_pref("media.block-autoplay-until-in-foreground",			true);
 
 // disable serviceworkers 
@@ -86,7 +98,7 @@ user_pref("social.whitelist",				"");
 user_pref("social.directories",				"");
 user_pref("social.shareDirectory",				"");
 user_pref("social.activeProviders",				"");
-user_pref("social.enabled",							false);
+user_pref("social.enabled", 						false);
 user_pref("social.remote-install.enabled",				false);
 user_pref("social.toast-notifications.enabled",				false);
 user_pref("social.share.activationPanelEnabled",				false);
@@ -102,6 +114,11 @@ user_pref("browser.urlbar.suggest.openpage",				true);
 
 user_pref("browser.search.countryCode",				"");
 user_pref("browser.search.region",				"");
+
+// uitours
+user_pref("browser.onboarding.notification.max-prompt-count-per-tour",		0);
+user_pref("browser.onboarding.newtour",		"");
+user_pref("browser.onboarding.notification.tour-ids-queue",		"");
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
@@ -157,7 +174,7 @@ user_pref("dom.telephony.enabled",				false);
 // https://developer.mozilla.org/en-US/docs/Web/API/navigator.sendBeacon
 user_pref("beacon.enabled",					false);
 // https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/dom.event.clipboardevents.enabled
-user_pref("dom.event.clipboardevents.enabled",			true);
+user_pref("dom.event.clipboardevents.enabled",			false);
 // https://wiki.mozilla.org/Security/Reviews/Firefox/NavigationTimingAPI
 user_pref("dom.enable_performance",				false);
 
@@ -189,7 +206,9 @@ user_pref("dom.gamepad.enabled",				false);
 user_pref("dom.vr.enabled",					false);
 
 // disable notifications
-user_pref("dom.webnotifications.enabled",			true);
+user_pref("dom.push.enabled",			false);
+user_pref("dom.push.connection.enabled",			false);
+user_pref("dom.webnotifications.enabled",			false);
 user_pref("dom.webnotifications.serviceworker.enabled",		false);
 
 // disable webGL
