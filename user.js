@@ -1,19 +1,14 @@
 /******************************************************************************
- * My user.js file for FF              |               ye, i know it's messy. *
- * Originally from https://github.com/pyllyukko/user.js                       *
+ * Originally from https://github.com/pyllyukko/user.js (MIT License (MIT))   *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * purposes. I removed a some of the comments too, to make it readable.       *
- * Date: 2017-09-09                                                           *
+ * Date: 2017-09-24                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
- ******************************************************************************/
-/*******************************************************************************
- findbar.modalHighlight = true
- findbar.highlightAll = true
+ * A lot of the rules are directly imported from pyllyukko's user.js          *
  ******************************************************************************/
 
 // Fix font rendering
 // https://github.com/renkun-ken/MacType.Source/blob/master/README.md
-
 //user_pref("gfx.font_loader.delay",  											-1);
 user_pref("gfx.font_rendering.cleartype.always_use_for_content",				true);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level",				100);
@@ -26,17 +21,17 @@ user_pref("gfx.use_text_smoothing_setting", 									true);
 
 // probably due to my system local being jp, the font loading is in a disarry.
 // this is a temporary fix, until i figure out how this thingy works
-user_pref("font.default.x-unicode", "sans-serif");
-user_pref("font.default.x-western", "sans-serif");
-user_pref("font.internaluseonly.changed", false);
-user_pref("font.name.monospace.ja", "Consolas");
-user_pref("font.name.monospace.x-western", "Consolas");
-user_pref("font.name.sans-serif.ja", "Arial");
-user_pref("font.name.sans-serif.x-unicode", "Arial");
-user_pref("font.name.sans-serif.x-western", "Arial");
-user_pref("font.name.serif.ja", "Arial");
-user_pref("font.name.serif.x-unicode", "Arial");
-user_pref("font.name.serif.x-western", "Arial");
+user_pref("font.default.x-unicode", 			"sans-serif");
+user_pref("font.default.x-western", 			"sans-serif");
+// user_pref("font.internaluseonly.changed",		false);
+user_pref("font.name.monospace.ja", 			"Consolas");
+user_pref("font.name.monospace.x-western",		"Consolas");
+user_pref("font.name.sans-serif.ja",			"Arial");
+user_pref("font.name.sans-serif.x-unicode",		"Arial");
+user_pref("font.name.sans-serif.x-western",		"Arial");
+user_pref("font.name.serif.ja",					"Arial");
+user_pref("font.name.serif.x-unicode", 			"Arial");
+user_pref("font.name.serif.x-western",			"Arial");
 
 // https://wiki.mozilla.org/Platform/GFX/HardwareAcceleration
 // https://www.macromedia.com/support/documentation/en/flashplayer/help/help01.html
@@ -54,15 +49,25 @@ user_pref("accessibility.typeaheadfind",			true);
 
 user_pref("geo.wifi.uri",				"");
 user_pref("geo.wifi.logging.enabled",		false);
-user_pref("browser.newtabpage.directory.source",				"");
+
+user_pref("browser.library.activity-stream.enabled",								false);
+user_pref("browser.newtabpage.activity-stream.enabled",								false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights",			false);
+user_pref("browser.newtabpage.activity-stream.feeds.topsites",						false);
+user_pref("browser.newtabpage.activity-stream.topSitesCount",						24);
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories.options",	"");
+user_pref("browser.newtabpage.activity-stream.telemetry",							false);
+user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint",				"");
 
 user_pref("media.autoplay.enabled",			false);
 user_pref("media.ffmpeg.enabled",			false);
 user_pref("media.block-autoplay-until-in-foreground",			true);
 
 // disable serviceworkers 
-user_pref("dom.serviceWorkers.enabled",			false);
+user_pref("dom.serviceWorkers.enabled",						false);
 user_pref("dom.serviceWorkers.openWindow.enabled",			false);
+// user_pref("dom.workers.enabled",							false);
+user_pref("dom.workers.sharedWorkers.enabled",				false);
 
 user_pref("media.gmp-eme-adobe.enabled",			false);
 // user_pref("media.gmp-eme-adobe.version",			"");
@@ -71,7 +76,7 @@ user_pref("media.gmp-widevinecdm.enabled",				false);
 // user_pref("media.gmp-widevinecdm.version",			"");
 // user_pref("media.benchmark.vp9.threshold,			64);
 
-user_pref("breakpad.reportURL",			"");
+user_pref("breakpad.reportURL",							"");
 user_pref("security.ssl.errorReporting.url",			"");
 user_pref("experiments.manifest.uri",					"");
 user_pref("toolkit.telemetry.cachedClientID",			"");
@@ -94,31 +99,38 @@ user_pref("javascript.options.wasm_baselinejit", 	false);
 user_pref("media.eme.enabled",				false);
 
 // https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Social_API
-user_pref("social.whitelist",				"");
-user_pref("social.directories",				"");
-user_pref("social.shareDirectory",				"");
-user_pref("social.activeProviders",				"");
+user_pref("social.whitelist",						"");
+user_pref("social.directories",						"");
+user_pref("social.shareDirectory",					"");
+user_pref("social.activeProviders",					"");
 user_pref("social.enabled", 						false);
-user_pref("social.remote-install.enabled",				false);
-user_pref("social.toast-notifications.enabled",				false);
-user_pref("social.share.activationPanelEnabled",				false);
+user_pref("social.remote-install.enabled",			false);
+user_pref("social.toast-notifications.enabled",		false);
+user_pref("social.share.activationPanelEnabled",	false);
 
-
-user_pref("browser.search.update",				false);
-user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",				false);
+user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",		false);
 user_pref("browser.urlbar.doubleClickSelectsAll",				false);
-user_pref("browser.urlbar.suggest.searches",				false);
-user_pref("browser.urlbar.suggest.bookmark",				true);
-user_pref("browser.urlbar.suggest.history",				true);
-user_pref("browser.urlbar.suggest.openpage",				true);
+user_pref("browser.urlbar.suggest.searches",					false);
+user_pref("browser.urlbar.suggest.bookmark",					true);
+user_pref("browser.urlbar.suggest.history",						true);
+user_pref("browser.urlbar.suggest.openpage",					true);
+user_pref("browser.urlbar.trimURLs",							false);
+user_pref("browser.urlbar.maxRichResults",						10);
+user_pref("browser.urlbar.autocomplete.enabled",				true);
 
+user_pref("browser.search.update",					false);
 user_pref("browser.search.countryCode",				"");
-user_pref("browser.search.region",				"");
+user_pref("browser.search.region",					"");
 
-// uitours
-user_pref("browser.onboarding.notification.max-prompt-count-per-tour",		0);
-user_pref("browser.onboarding.newtour",		"");
-user_pref("browser.onboarding.notification.tour-ids-queue",		"");
+//user_pref("captivedetect.canonicalURL", 			"");
+//user_pref("network.captive-portal-service.enabled", false);
+
+// stop autoupdating my stuff
+// http://kb.mozillazine.org/App.update.silent
+user_pref("app.update.auto",				false);
+user_pref("app.update.enabled",				false);
+user_pref("app.update.silent",				true);
+
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
@@ -166,17 +178,17 @@ user_pref("media.peerconnection.identity.timeout",			1);.
 // getUserMedia
 // https://wiki.mozilla.org/Media/getUserMedia
 // https://developer.mozilla.org/en-US/docs/Web/API/Navigator
-user_pref("media.navigator.enabled",				false);
 // https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager
-user_pref("dom.battery.enabled",				false);
-// https://wiki.mozilla.org/WebAPI/Security/WebTelephony
-user_pref("dom.telephony.enabled",				false);
 // https://developer.mozilla.org/en-US/docs/Web/API/navigator.sendBeacon
-user_pref("beacon.enabled",					false);
 // https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/dom.event.clipboardevents.enabled
-user_pref("dom.event.clipboardevents.enabled",			false);
 // https://wiki.mozilla.org/Security/Reviews/Firefox/NavigationTimingAPI
-user_pref("dom.enable_performance",				false);
+// https://wiki.mozilla.org/WebAPI/Security/WebTelephony
+user_pref("media.navigator.enabled",				false);
+user_pref("dom.battery.enabled",					false);
+user_pref("dom.telephony.enabled",					false);
+user_pref("beacon.enabled",							false);
+user_pref("dom.event.clipboardevents.enabled",		false);
+user_pref("dom.enable_performance",					false);
 
 // Speech recognition
 // https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html
@@ -193,7 +205,7 @@ user_pref("device.sensors.enabled",				false);
 
 // http://kb.mozillazine.org/Browser.send_pings
 user_pref("browser.send_pings",					false);
-// this shouldn't have any effect, since we block pings altogether, but we'll set it anyway.
+// this shouldn't have any effect, since pings are blocked altogether, but set it anyway.
 // http://kb.mozillazine.org/Browser.send_pings.require_same_host
 user_pref("browser.send_pings.require_same_host",		true);
 
@@ -206,9 +218,11 @@ user_pref("dom.gamepad.enabled",				false);
 user_pref("dom.vr.enabled",					false);
 
 // disable notifications
-user_pref("dom.push.enabled",			false);
-user_pref("dom.push.connection.enabled",			false);
-user_pref("dom.webnotifications.enabled",			false);
+user_pref("dom.push.enabled",								false);
+user_pref("dom.push.connection.enabled",					false);
+user_pref("dom.push.serverURL", 							"");
+user_pref("dom.push.userAgentID", 							"");
+user_pref("dom.webnotifications.enabled",					false);
 user_pref("dom.webnotifications.serviceworker.enabled",		false);
 
 // disable webGL
@@ -231,10 +245,6 @@ user_pref("camera.control.face_detection.enabled",		false);
 
 // http://kb.mozillazine.org/Clipboard.autocopy
 user_pref("clipboard.autocopy",					false);
-
-// Don't trim HTTP off of URLs in the address bar.
-// https://bugzilla.mozilla.org/show_bug.cgi?id=665580
-user_pref("browser.urlbar.trimURLs",				false);
 
 // Don't try to guess where i'm trying to go!!! e.g.: "http://foo" -> "http://(prefix)foo(suffix)"
 // http://www-archive.mozilla.org/docs/end-user/domain-guessing.html
@@ -271,7 +281,8 @@ user_pref("browser.urlbar.filter.javascript",			true);
 // https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2712
 user_pref("javascript.options.asmjs",				false);
 
-// https://bugzil.la/654550
+// PREF: Disable video stats to reduce fingerprinting threat
+// https://bugzilla.mozilla.org/show_bug.cgi?id=654550
 // https://github.com/pyllyukko/user.js/issues/9#issuecomment-100468785
 // https://github.com/pyllyukko/user.js/issues/9#issuecomment-148922065
 user_pref("media.video_stats.enabled",				false);
@@ -289,6 +300,7 @@ user_pref("general.buildID.override",				"20100101");
 
 // Require signatures
 user_pref("xpinstall.signatures.required",				true);
+user_pref("xpinstall.whitelist.required",				true);
 
 // Opt-out of add-on metadata updates
 // https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
@@ -319,17 +331,16 @@ user_pref("extensions.blocklist.enabled",			true);
 
 // WebIDE
 // https://trac.torproject.org/projects/tor/ticket/16222
-user_pref("devtools.webide.enabled",				false);
-user_pref("devtools.webide.autoinstallADBHelper",		false);
+user_pref("devtools.webide.enabled",						false);
+user_pref("devtools.webide.autoinstallADBHelper",			false);
 user_pref("devtools.webide.autoinstallFxdtAdapters",		false);
 
 // disable remote debugging
 // https://developer.mozilla.org/docs/Tools/Remote_Debugging/Debugging_Firefox_Desktop#Enable_remote_debugging
 // https://developer.mozilla.org/en-US/docs/Tools/Tools_Toolbox#Advanced_settings
-user_pref("devtools.debugger.remote-enabled",			false);
-// "to use developer tools in the context of the browser itself, and not only web content"
-user_pref("devtools.chrome.enabled",				false);
 // https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging/Debugging_Firefox_Desktop#Firefox_37_onwards
+user_pref("devtools.debugger.remote-enabled",		false);
+user_pref("devtools.chrome.enabled",				false);
 user_pref("devtools.debugger.force-local",			true);
 
 // https://wiki.mozilla.org/Platform/Features/Telemetry
@@ -339,17 +350,34 @@ user_pref("devtools.debugger.force-local",			true);
 // https://wiki.mozilla.org/Telemetry/Experiments
 user_pref("toolkit.telemetry.enabled",				false);
 user_pref("toolkit.telemetry.unified",				false);
-user_pref("experiments.supported",				false);
-user_pref("experiments.enabled",				false);
+user_pref("experiments.supported",					false);
+user_pref("experiments.enabled",					false);
+
+// PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
+// https://wiki.mozilla.org/FlyWeb/Security_scenarios
+// http://www.ghacks.net/2016/07/26/firefox-flyweb
+user_pref("dom.flyweb.enabled",					false);
 
 // Disable the UITour backend so there is no chance that a remote page
 // can use it to confuse Tor Browser users.
 user_pref("browser.uitour.enabled",				false);
+// more uitours
+user_pref("browser.onboarding.enabled", 									false);
+user_pref("browser.onboarding.notification.max-prompt-count-per-tour",		0);
+user_pref("browser.onboarding.newtour",										"");
+user_pref("browser.onboarding.notification.tour-ids-queue",					"");
+user_pref("browser.onboarding.updatetour",									"");
 
-// Resist fingerprinting via window.screen and CSS media queries and other techniques
-// https://bugzil.la/418986
-// https://bugzil.la/1281949
-// https://bugzil.la/1281963
+// PREF: Enable Firefox Tracking Protection
+// https://wiki.mozilla.org/Security/Tracking_protection
+// https://support.mozilla.org/en-US/kb/tracking-protection-firefox
+// https://support.mozilla.org/en-US/kb/tracking-protection-pbm
+// user_pref("privacy.trackingprotection.enabled",			true);
+// user_pref("privacy.trackingprotection.pbmode.enabled",		true);
+
+// PREF: Enable hardening against various fingerprinting vectors (Tor Uplift project)
+// https://wiki.mozilla.org/Security/Tor_Uplift/Tracking
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1333933
 user_pref("privacy.resistFingerprinting",			true);
 
 // Disable the built-in PDF viewer (CVE-2015-2743)
@@ -362,17 +390,6 @@ user_pref("pdfjs.disabled",					true);
 user_pref("datareporting.healthreport.uploadEnabled",		false);
 user_pref("datareporting.healthreport.service.enabled",		false);
 user_pref("datareporting.policy.dataSubmissionEnabled",		false);
-
-// Disable new tab tile ads & preload
-// http://www.thewindowsclub.com/disable-remove-ad-tiles-from-firefox
-// http://forums.mozillazine.org/viewtopic.php?p=13876331#p13876331
-user_pref("browser.newtabpage.enhanced",			false);
-user_pref("browser.newtab.preload",				false);
-// https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
-// https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
-user_pref("browser.newtabpage.directory.ping",			"");
-// https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
-//user_pref("browser.newtabpage.directory.source",		"data:text/plain,{}");
 
 // disable heartbeat
 // https://wiki.mozilla.org/Advocacy/heartbeat
@@ -399,17 +416,28 @@ user_pref("browser.safebrowsing.malware.enabled",		false);
 // This leaks information to google.
 // https://www.mozilla.org/en-US/firefox/39.0/releasenotes/
 // https://wiki.mozilla.org/Security/Application_Reputation
-user_pref("browser.safebrowsing.downloads.remote.enabled",	false);
-user_pref("browser.safebrowsing.downloads.remote.block_dangerous",	false);
+user_pref("browser.safebrowsing.downloads.remote.enabled", 				false);
+user_pref("browser.safebrowsing.downloads.remote.block_dangerous",		false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host",	false);
-user_pref("browser.safebrowsing.downloads.remote.block_uncommon",	false);
-user_pref("browser.safebrowsing.downloads.enabled",	false);
+user_pref("browser.safebrowsing.downloads.remote.block_uncommon",		false);
+user_pref("browser.safebrowsing.downloads.enabled",						false);
+user_pref("browser.safebrowsing.downloads.remote.url",					"");
 
 // https://support.mozilla.org/en-US/kb/save-web-pages-later-pocket-firefox
-user_pref("browser.pocket.enabled",				false);
+user_pref("browser.pocket.enabled",					false);
 user_pref("extensions.pocket.enabled",				false);
-user_pref("extensions.pocket.api",				"");
-user_pref("extensions.pocket.site",				"");
+user_pref("extensions.pocket.api",					"");
+user_pref("extensions.pocket.site",					"");
+
+// disable screenshots addon
+user_pref("extensions.screenshots.disabled",					true);
+user_pref("extensions.screenshots.system-disabled",				true);
+
+// disable Shield telemetry
+// https://wiki.mozilla.org/Firefox/Shield
+user_pref("extensions.shield-recipe-client.enabled", 	false);
+user_pref("extensions.shield-recipe-client.api_url", 	"");
+user_pref("extensions.shield-recipe-client.user_id", 	"");
 
 /******************************************************************************
  * automatic connections                                                      *
@@ -418,22 +446,23 @@ user_pref("extensions.pocket.site",				"");
 
 // Disable link prefetching
 // http://kb.mozillazine.org/Network.prefetch-next
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Is_there_a_preference_to_disable_link_prefetching.3F
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
 user_pref("network.prefetch-next",				false);
 
-// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_geolocation-for-default-search-engine
+// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections
 user_pref("browser.search.geoip.url",				"");
 
 // http://kb.mozillazine.org/Network.dns.disablePrefetch
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Controlling_DNS_prefetching
 user_pref("network.dns.disablePrefetch",			true);
-user_pref("network.dns.disablePrefetchFromHTTPS",		true);
+user_pref("network.dns.disablePrefetchFromHTTPS",	true);
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1228457
 user_pref("network.dns.blockDotOnion",				true);
 
 // https://wiki.mozilla.org/Privacy/Reviews/Necko
 user_pref("network.predictor.enabled",				false);
+user_pref("network.allow-experiments",				false);
 
 // https://wiki.mozilla.org/Privacy/Reviews/Necko#Principle:_Real_Choice
 user_pref("network.seer.enabled",				false);
@@ -442,20 +471,16 @@ user_pref("network.seer.enabled",				false);
 // https://bugzil.la/1111967
 user_pref("browser.casting.enabled",				false);
 
-// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_media-capabilities
+// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections
 // http://andreasgal.com/2014/10/14/openh264-now-in-firefox/
+// https://bugzil.la/814169
 user_pref("media.gmp-gmpopenh264.enabled",			false);
 user_pref("media.gmp-manager.url",				"");
 
-// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_speculative-pre-connections
-// https://bugzil.la/814169
-user_pref("network.http.speculative-parallel-limit",		0);
-
-// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_mozilla-content
+// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections
+user_pref("network.http.speculative-parallel-limit",	0);
 user_pref("browser.aboutHomeSnippets.updateUrl",		"");
-
-// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_auto-update-checking
-user_pref("browser.search.update",				false);
+user_pref("browser.search.update",						false);
 
 /******************************************************************************
  * HTTP                                                                       *
@@ -485,6 +510,21 @@ user_pref("browser.pagethumbnails.capturing_disabled",		true);
  * UI related                                                                 *
  *                                                                            *
  ******************************************************************************/
+// PREF: Enable insecure password warnings (login forms in non-HTTPS pages)
+// https://blog.mozilla.org/tanvi/2016/01/28/no-more-passwords-over-http-please/
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1319119
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1217156
+user_pref("security.insecure_password.ui.enabled",		true);
+
+// PREF: Disable new tab tile ads & preload
+// http://www.thewindowsclub.com/disable-remove-ad-tiles-from-firefox
+// http://forums.mozillazine.org/viewtopic.php?p=13876331#p13876331
+// https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
+user_pref("browser.newtab.preload",						false);
+user_pref("browser.newtabpage.enhanced",				false);
+user_pref("browser.newtabpage.directory.ping",			"");
+user_pref("browser.newtabpage.directory.source",		"data:text/plain,{}");
+//user_pref("browser.newtabpage.directory.source",		"");
 
 // CIS Version 1.2.0 October 21st, 2011 2.1.2 Enable Auto Notification of Outdated Plugins
 // https://wiki.mozilla.org/Firefox3.6/Plugin_Update_Awareness_Security_Review
@@ -497,89 +537,122 @@ user_pref("plugins.hide_infobar_for_outdated_plugin",		false);
 // http://kb.mozillazine.org/Network.IDN_show_punycode
 user_pref("network.IDN_show_punycode",				true);
 
-// http://www.labnol.org/software/browsers/prevent-firefox-showing-bookmarks-address-location-bar/3636/
-// http://kb.mozillazine.org/Browser.urlbar.maxRichResults
-// "Setting the preference to 0 effectively disables the Location Bar dropdown entirely."
-user_pref("browser.urlbar.maxRichResults",			20);
-
+// PREF: Disable CSS :visited selectors
 // https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/
-// http://dbaron.org/mozilla/visited-privacy
+// https://dbaron.org/mozilla/visited-privacy
 user_pref("layout.css.visited_links_enabled",			false);
-
-user_pref("browser.urlbar.autocomplete.enabled",		true);
 
 // http://kb.mozillazine.org/Signon.autofillForms
 // https://www.torproject.org/projects/torbrowser/design/#identifier-linkability
 user_pref("signon.autofillForms",				false);
 
-// do not check if firefox is the default browser
+// PREF: Do not check if Firefox is the default browser
 user_pref("browser.shell.checkDefaultBrowser",			false);
 
+// PREF: Display a notification bar when websites offer data for offline use
+// http://kb.mozillazine.org/Browser.offline-apps.notify
+user_pref("browser.offline-apps.notify",			true);
+
 /******************************************************************************
- * TLS / HTTPS / OCSP related stuff                                           *
- *                                                                            *
+ * SECTION: Cryptography                                                      *
  ******************************************************************************/
 
+// PREF: Enable HSTS preload list (pre-set HSTS sites list provided by Mozilla)
 // https://blog.mozilla.org/security/2012/11/01/preloading-hsts/
 // https://wiki.mozilla.org/Privacy/Features/HSTS_Preload_List
+// https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security
 user_pref("network.stricttransportsecurity.preloadlist",	true);
 
-// CIS Version 1.2.0 October 21st, 2011 2.2.4 Enable Online Certificate Status Protocol
+// PREF: Enable Online Certificate Status Protocol
+// https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol
+// NOTICE: OCSP leaks your IP and domains you visit to the CA when OCSP Stapling is not available on visited host
+// NOTICE: OCSP is vulnerable to replay attacks when nonce is not configured on the OCSP responder
+// NOTICE: OCSP adds latency (performance)
+// NOTICE: Short-lived certificates are not checked for revocation (security.pki.cert_short_lifetime_in_days, default:10)
+// CIS Version 1.2.0 October 21st, 2011 2.2.4
 user_pref("security.OCSP.enabled",				1);
 
+// PREF: Enable OCSP Stapling support
+// https://en.wikipedia.org/wiki/OCSP_stapling
 // https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
+// https://www.digitalocean.com/community/tutorials/how-to-configure-ocsp-stapling-on-apache-and-nginx
 user_pref("security.ssl.enable_ocsp_stapling",			true);
 
-// require certificate revocation check through OCSP protocol.
-// NOTICE: this leaks information about the sites you visit to the CA.
-// user_pref("security.OCSP.require",				true);
-user_pref("security.OCSP.require",				false);
+// PREF: Enable OCSP Must-Staple support (Firefox >= 45)
+// https://blog.mozilla.org/security/2015/11/23/improving-revocation-ocsp-must-staple-and-short-lived-certificates/
+// https://www.entrust.com/ocsp-must-staple/
+// https://github.com/schomery/privacy-settings/issues/40
+// NOTICE: Firefox falls back on plain OCSP when must-staple is not configured on the host certificate
+user_pref("security.ssl.enable_ocsp_must_staple",		true);
 
+// PREF: Require a valid OCSP response for OCSP enabled certificates
+// https://groups.google.com/forum/#!topic/mozilla.dev.security/n1G-N2-HTVA
+// Disabling this will make OCSP bypassable by MitM attacks suppressing OCSP responses
+// NOTICE: `security.OCSP.require` will make the connection fail when the OCSP responder is unavailable
+// NOTICE: `security.OCSP.require` is known to break browsing on some [captive portals](https://en.wikipedia.org/wiki/Captive_portal)
+user_pref("security.OCSP.require",				true);
+// user_pref("security.OCSP.require", false);
+
+// PREF: Disable TLS Session Tickets
 // https://www.blackhat.com/us-13/briefings.html#NextGen
 // https://media.blackhat.com/us-13/US-13-Daigniere-TLS-Secrets-Slides.pdf
 // https://media.blackhat.com/us-13/US-13-Daigniere-TLS-Secrets-WP.pdf
-// https://bugzil.la/917049
-// https://bugzil.la/967977
+// https://bugzilla.mozilla.org/show_bug.cgi?id=917049
+// https://bugzilla.mozilla.org/show_bug.cgi?id=967977
 user_pref("security.ssl.disable_session_identifiers",		true);
 
-// TLS 1.[012]
-// http://kb.mozillazine.org/Security.tls.version.max
+// PREF: Only allow TLS 1.[0-3]
+// http://kb.mozillazine.org/Security.tls.version.*
 // 1 = TLS 1.0 is the minimum required / maximum supported encryption protocol. (This is the current default for the maximum supported version.)
 // 2 = TLS 1.1 is the minimum required / maximum supported encryption protocol.
 user_pref("security.tls.version.min",				1);
-user_pref("security.tls.version.max",				3);
+user_pref("security.tls.version.max",				4);
 
-// pinning
-// https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
+// PREF: Disable insecure TLS version fallback
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1084025
+// https://github.com/pyllyukko/user.js/pull/206#issuecomment-280229645
+user_pref("security.tls.version.fallback-limit",		3);
+
+// PREF: Enfore Public Key Pinning
+// https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning
+// https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning
 // "2. Strict. Pinning is always enforced."
 user_pref("security.cert_pinning.enforcement_level",		2);
 
+// PREF: Disallow SHA-1
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1302140
+// https://shattered.io/
+user_pref("security.pki.sha1_enforcement_level",		1);
 
+// PREF: Warn the user when server doesn't support RFC 5746 ("safe" renegotiation)
 // https://wiki.mozilla.org/Security:Renegotiation#security.ssl.treat_unsafe_negotiation_as_broken
-// see also CVE-2009-3555
+// https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-3555
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken",	true);
 
+// PREF: Disallow connection to servers not supporting safe renegotiation (disabled)
+// https://wiki.mozilla.org/Security:Renegotiation#security.ssl.require_safe_negotiation
+// https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-3555
+// TODO: `security.ssl.require_safe_negotiation` is more secure but makes browsing next to impossible (2012-2014-... - `ssl_error_unsafe_negotiation` errors), so is left disabled
+//user_pref("security.ssl.require_safe_negotiation",		true);
+
+// PREF: Disable automatic reporting of TLS connection errors
 // https://support.mozilla.org/en-US/kb/certificate-pinning-reports
-//
 // we could also disable security.ssl.errorReporting.enabled, but I think it's
 // good to leave the option to report potentially malicious sites if the user
 // chooses to do so.
-//
 // you can test this at https://pinningtest.appspot.com/
 user_pref("security.ssl.errorReporting.automatic",		false);
 
+// PREF: Pre-populate the current URL but do not pre-fetch the certificate in the "Add Security Exception" dialog
 // http://kb.mozillazine.org/Browser.ssl_override_behavior
-// Pre-populate the current URL but do not pre-fetch the certificate.
+// https://github.com/pyllyukko/user.js/issues/210
 user_pref("browser.ssl_override_behavior",			1);
 
 /******************************************************************************
- * CIPHERS                                                                    *
- *                                                                            *
- * you can debug the SSL handshake with tshark:                               *
- *     tshark -t ad -n -i wlan0 -T text -V -R ssl.handshake                   *
+ * SECTION: Cipher suites                                                     *
  ******************************************************************************/
 
-// disable null ciphers
+// PREF: Disable null ciphers
 user_pref("security.ssl3.rsa_null_sha",				false);
 user_pref("security.ssl3.rsa_null_md5",				false);
 user_pref("security.ssl3.ecdhe_rsa_null_sha",			false);
@@ -587,18 +660,17 @@ user_pref("security.ssl3.ecdhe_ecdsa_null_sha",			false);
 user_pref("security.ssl3.ecdh_rsa_null_sha",			false);
 user_pref("security.ssl3.ecdh_ecdsa_null_sha",			false);
 
-// SEED
+// PREF: Disable SEED cipher
 // https://en.wikipedia.org/wiki/SEED
 user_pref("security.ssl3.rsa_seed_sha",				false);
 
-// 40 bits...
+// PREF: Disable 40/56/128-bit ciphers
+// 40-bit ciphers
 user_pref("security.ssl3.rsa_rc4_40_md5",			false);
 user_pref("security.ssl3.rsa_rc2_40_md5",			false);
-
-// 56 bits
+// 56-bit ciphers
 user_pref("security.ssl3.rsa_1024_rc4_56_sha",			false);
-
-// 128 bits
+// 128-bit ciphers
 user_pref("security.ssl3.rsa_camellia_128_sha",			false);
 user_pref("security.ssl3.ecdhe_rsa_aes_128_sha",		false);
 user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha",		false);
@@ -607,19 +679,20 @@ user_pref("security.ssl3.ecdh_ecdsa_aes_128_sha",		false);
 user_pref("security.ssl3.dhe_rsa_camellia_128_sha",		false);
 user_pref("security.ssl3.dhe_rsa_aes_128_sha",			false);
 
-// RC4 (CVE-2013-2566)
+// PREF: Disable RC4
+// https://developer.mozilla.org/en-US/Firefox/Releases/38#Security
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1138882
+// https://rc4.io/
+// https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2013-2566
 user_pref("security.ssl3.ecdh_ecdsa_rc4_128_sha",		false);
 user_pref("security.ssl3.ecdh_rsa_rc4_128_sha",			false);
 user_pref("security.ssl3.ecdhe_ecdsa_rc4_128_sha",		false);
 user_pref("security.ssl3.ecdhe_rsa_rc4_128_sha",		false);
 user_pref("security.ssl3.rsa_rc4_128_md5",			false);
 user_pref("security.ssl3.rsa_rc4_128_sha",			false);
-// https://developer.mozilla.org/en-US/Firefox/Releases/38#Security
-// https://bugzil.la/1138882
-// https://rc4.io/
 user_pref("security.tls.unrestricted_rc4_fallback",		false);
 
-// 3DES -> false because effective key size < 128
+// PREF: Disable 3DES (effective key size is < 128)
 // https://en.wikipedia.org/wiki/3des#Security
 // http://en.citizendium.org/wiki/Meet-in-the-middle_attack
 // http://www-archive.mozilla.org/projects/security/pki/nss/ssl/fips-ssl-ciphersuites.html
@@ -632,40 +705,42 @@ user_pref("security.ssl3.ecdhe_rsa_des_ede3_sha",		false);
 user_pref("security.ssl3.rsa_des_ede3_sha",			false);
 user_pref("security.ssl3.rsa_fips_des_ede3_sha",		false);
 
-// Ciphers with ECDH (without /e$/)
+// PREF: Disable ciphers with ECDH (non-ephemeral)
 user_pref("security.ssl3.ecdh_rsa_aes_256_sha",			false);
 user_pref("security.ssl3.ecdh_ecdsa_aes_256_sha",		false);
 
-// 256 bits without PFS
+// PREF: Disable 256 bits ciphers without PFS
 user_pref("security.ssl3.rsa_camellia_256_sha",			false);
 
-// Ciphers with ECDHE and > 128bits
-user_pref("security.ssl3.ecdhe_rsa_aes_256_sha",		true);
-user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha",		true);
+// PREF: Enable ciphers with ECDHE and key size > 128bits
+user_pref("security.ssl3.ecdhe_rsa_aes_256_sha",		true); // 0xc014
+user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha",		true); // 0xc00a
 
-// GCM, yes please!
-user_pref("security.ssl3.ecdhe_ecdsa_aes_128_gcm_sha256",	true);
-user_pref("security.ssl3.ecdhe_rsa_aes_128_gcm_sha256",		true);
+// PREF: Enable GCM ciphers (TLSv1.2 only)
+// https://en.wikipedia.org/wiki/Galois/Counter_Mode
+user_pref("security.ssl3.ecdhe_ecdsa_aes_128_gcm_sha256",	true); // 0xc02b
+user_pref("security.ssl3.ecdhe_rsa_aes_128_gcm_sha256",		true); // 0xc02f
 
-// ChaCha20 and Poly1305. Supported since Firefox 47.
+// PREF: Enable ChaCha20 and Poly1305 (Firefox >= 47)
 // https://www.mozilla.org/en-US/firefox/47.0/releasenotes/
 // https://tools.ietf.org/html/rfc7905
-// https://bugzil.la/917571
-// https://bugzil.la/1247860
+// https://bugzilla.mozilla.org/show_bug.cgi?id=917571
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1247860
 // https://cr.yp.to/chacha.html
 user_pref("security.ssl3.ecdhe_ecdsa_chacha20_poly1305_sha256",	true);
 user_pref("security.ssl3.ecdhe_rsa_chacha20_poly1305_sha256",	true);
 
-// Susceptible to the logjam attack - https://weakdh.org/
+// PREF: Disable ciphers susceptible to the logjam attack
+// https://weakdh.org/
 user_pref("security.ssl3.dhe_rsa_camellia_256_sha",		false);
 user_pref("security.ssl3.dhe_rsa_aes_256_sha",			false);
 
-// Ciphers with DSA (max 1024 bits)
+// PREF: Disable ciphers with DSA (max 1024 bits)
 user_pref("security.ssl3.dhe_dss_aes_128_sha",			false);
 user_pref("security.ssl3.dhe_dss_aes_256_sha",			false);
 user_pref("security.ssl3.dhe_dss_camellia_128_sha",		false);
 user_pref("security.ssl3.dhe_dss_camellia_256_sha",		false);
 
-// Fallbacks due compatibility reasons
-user_pref("security.ssl3.rsa_aes_256_sha",			true);
-user_pref("security.ssl3.rsa_aes_128_sha",			true);
+// PREF: Fallbacks due compatibility reasons
+user_pref("security.ssl3.rsa_aes_256_sha",			true); // 0x35
+user_pref("security.ssl3.rsa_aes_128_sha",			true); // 0x2f
