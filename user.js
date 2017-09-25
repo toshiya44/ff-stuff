@@ -4,7 +4,7 @@
  * purposes. I removed a some of the comments too, to make it readable.       *
  * Date: 2017-09-24                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
- * A lot of the rules are directly imported from pyllyukko's user.js          *
+ * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
 
 // Fix font rendering
@@ -162,18 +162,18 @@ user_pref("dom.webaudio.enabled",				false);
 // Don't reveal your internal IP
 // Check the settings with: http://net.ipcalf.com/
 // https://wiki.mozilla.org/Media/WebRTC/Privacy
-user_pref("media.peerconnection.ice.default_address_only",			true); // Firefox < 51
-user_pref("media.peerconnection.ice.no_host",			true); // Firefox >= 51
 // Disable WebRTC entirely
-user_pref("media.peerconnection.enabled",			false);
+user_pref("media.peerconnection.enabled",						false);
+user_pref("media.peerconnection.ice.default_address_only",		true); // Firefox < 51
+user_pref("media.peerconnection.ice.no_host",					true); // Firefox >= 51
 
 // https://redd.it/2uaent
-user_pref("media.getusermedia.screensharing.allowed_domains",			"");
-user_pref("media.peerconnection.video.enabled",			false);
-user_pref("media.peerconnection.turn.disable",			true);
+user_pref("media.getusermedia.screensharing.allowed_domains",		"");
+user_pref("media.peerconnection.video.enabled",						false);
+user_pref("media.peerconnection.turn.disable",						true);
 user_pref("media.peerconnection.use_document_iceservers",			false);
-user_pref("media.peerconnection.identity.enabled",			false);
-user_pref("media.peerconnection.identity.timeout",			1);.
+user_pref("media.peerconnection.identity.enabled",					false);
+user_pref("media.peerconnection.identity.timeout",					1);.
 
 // getUserMedia
 // https://wiki.mozilla.org/Media/getUserMedia
@@ -227,13 +227,11 @@ user_pref("dom.webnotifications.serviceworker.enabled",		false);
 
 // disable webGL
 // http://www.contextis.com/resources/blog/webgl-new-dimension-browser-exploitation/
-user_pref("webgl.disabled",					true);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1171228
 // https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_debug_renderer_info
-user_pref("webgl.enable-debug-renderer-info",			false);
-// somewhat related...
-user_pref("pdfjs.enableWebGL",				false);
-
+user_pref("webgl.disabled",							true);
+user_pref("webgl.enable-debug-renderer-info",		false);
+user_pref("pdfjs.enableWebGL",						false);
 
 /******************************************************************************
  * Misc                                                                       *
@@ -403,24 +401,23 @@ user_pref("loop.logDomains",					false);
 
 // CIS 2.3.4 Block Reported Web Forgeries
 // http://kb.mozillazine.org/Browser.safebrowsing.enabled
+// http://kb.mozillazine.org/Browser.safebrowsing.malware.enabled
 // http://kb.mozillazine.org/Safe_browsing
 // https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work
 // http://forums.mozillazine.org/viewtopic.php?f=39&t=2711237&p=12896849#p12896849
-user_pref("browser.safebrowsing.enabled",			false);
-
-// CIS 2.3.5 Block Reported Attack Sites
-// http://kb.mozillazine.org/Browser.safebrowsing.malware.enabled
+user_pref("browser.safebrowsing.enabled",				false);
 user_pref("browser.safebrowsing.malware.enabled",		false);
+user_pref("browser.safebrowsing.phishing.enabled",		false);
 
 // Disable safe browsing remote lookups for downloaded files.
 // This leaks information to google.
 // https://www.mozilla.org/en-US/firefox/39.0/releasenotes/
 // https://wiki.mozilla.org/Security/Application_Reputation
+user_pref("browser.safebrowsing.downloads.enabled",						false);
 user_pref("browser.safebrowsing.downloads.remote.enabled", 				false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous",		false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host",	false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon",		false);
-user_pref("browser.safebrowsing.downloads.enabled",						false);
 user_pref("browser.safebrowsing.downloads.remote.url",					"");
 
 // https://support.mozilla.org/en-US/kb/save-web-pages-later-pocket-firefox
@@ -570,7 +567,8 @@ user_pref("network.stricttransportsecurity.preloadlist",	true);
 // NOTICE: OCSP adds latency (performance)
 // NOTICE: Short-lived certificates are not checked for revocation (security.pki.cert_short_lifetime_in_days, default:10)
 // CIS Version 1.2.0 October 21st, 2011 2.2.4
-user_pref("security.OCSP.enabled",				1);
+//user_pref("security.OCSP.enabled",				1);
+user_pref("security.OCSP.enabled",				0);
 
 // PREF: Enable OCSP Stapling support
 // https://en.wikipedia.org/wiki/OCSP_stapling
