@@ -17,4 +17,4 @@ function addGlobalStyle(css) {
     style.innerHTML = css;
     head.appendChild(style);
 }
-addGlobalStyle('*{overflow-wrap: break-word !important;}');
+addGlobalStyle('*{overflow-wrap: break-word !important;} /*td>a.tag{display:none;}*/');
