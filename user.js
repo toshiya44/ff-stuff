@@ -2,7 +2,7 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License (MIT))   *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * purposes. I removed a some of the comments too, to make it readable.       *
- * Date: 2017-09-24                                                           *
+ * Date: 2017-09-26                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -45,7 +45,6 @@ user_pref("browser.altClickSave",			true);
 // disables scan for plugins
 user_pref("plugin.scan.plid.all",			false);
 user_pref("app.update.auto",				false);
-user_pref("accessibility.typeaheadfind",			true);
 
 user_pref("geo.wifi.uri",				"");
 user_pref("geo.wifi.logging.enabled",		false);
@@ -78,7 +77,6 @@ user_pref("media.gmp-widevinecdm.enabled",				false);
 
 user_pref("breakpad.reportURL",							"");
 user_pref("security.ssl.errorReporting.url",			"");
-user_pref("experiments.manifest.uri",					"");
 user_pref("toolkit.telemetry.cachedClientID",			"");
 user_pref("toolkit.telemetry.server",					"");
 user_pref("toolkit.telemetry.archive.enabled",			false);
@@ -131,6 +129,9 @@ user_pref("app.update.auto",				false);
 user_pref("app.update.enabled",				false);
 user_pref("app.update.silent",				true);
 
+// https://support.mozilla.org/en-US/kb/accessibility-services
+user_pref("accessibility.typeaheadfind",			true);
+user_pref("accessibility.force_disabled",			1);
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
@@ -168,7 +169,6 @@ user_pref("media.peerconnection.ice.default_address_only",		true); // Firefox < 
 user_pref("media.peerconnection.ice.no_host",					true); // Firefox >= 51
 
 // https://redd.it/2uaent
-user_pref("media.getusermedia.screensharing.allowed_domains",		"");
 user_pref("media.peerconnection.video.enabled",						false);
 user_pref("media.peerconnection.turn.disable",						true);
 user_pref("media.peerconnection.use_document_iceservers",			false);
@@ -189,33 +189,40 @@ user_pref("dom.telephony.enabled",					false);
 user_pref("beacon.enabled",							false);
 user_pref("dom.event.clipboardevents.enabled",		false);
 user_pref("dom.enable_performance",					false);
+user_pref("dom.enable_user_timing",					false);
 
 // Speech recognition
 // https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html
 // https://wiki.mozilla.org/HTML5_Speech_API
+// https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
 user_pref("media.webspeech.recognition.enable",			false);
+user_pref("media.webspeech.synth.enable",			false);
 
 // Disable getUserMedia screen sharing
 // https://mozilla.github.io/webrtc-landing/gum_test.html
+user_pref("media.getusermedia.audiocapture.enabled",		false);
 user_pref("media.getusermedia.screensharing.enabled",		false);
+user_pref("media.getusermedia.screensharing.allowed_domains",		"");
 
 // Disable sensor API
 // https://wiki.mozilla.org/Sensor_API
 user_pref("device.sensors.enabled",				false);
 
 // http://kb.mozillazine.org/Browser.send_pings
-user_pref("browser.send_pings",					false);
-// this shouldn't have any effect, since pings are blocked altogether, but set it anyway.
 // http://kb.mozillazine.org/Browser.send_pings.require_same_host
+user_pref("browser.send_pings",					false);
 user_pref("browser.send_pings.require_same_host",		true);
 
 // Disable gamepad input
 // http://www.w3.org/TR/gamepad/
-user_pref("dom.gamepad.enabled",				false);
+user_pref("dom.gamepad.enabled",			false);
 
 // Disable virtual reality devices
 // https://developer.mozilla.org/en-US/Firefox/Releases/36#Interfaces.2FAPIs.2FDOM
 user_pref("dom.vr.enabled",					false);
+
+// PREF: Disable vibrator API
+user_pref("dom.vibrator.enabled",			false);
 
 // disable notifications
 user_pref("dom.push.enabled",								false);
@@ -230,6 +237,15 @@ user_pref("dom.webnotifications.serviceworker.enabled",		false);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1171228
 // https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_debug_renderer_info
 user_pref("webgl.disabled",							true);
+// PREF: When webGL is enabled, use the minimum capability mode
+user_pref("webgl.min_capability_mode",				true);
+// PREF: When webGL is enabled, disable webGL extensions
+// https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#WebGL_debugging_and_testing
+user_pref("webgl.disable-extensions",				true);
+// PREF: When webGL is enabled, force enabling it even when layer acceleration is not supported
+// https://trac.torproject.org/projects/tor/ticket/18603
+user_pref("webgl.disable-fail-if-major-performance-caveat",	true);
+// PREF: When webGL is enabled, do not expose information about the graphics driver
 user_pref("webgl.enable-debug-renderer-info",		false);
 user_pref("pdfjs.enableWebGL",						false);
 
@@ -290,6 +306,13 @@ user_pref("media.video_stats.enabled",				false);
 // https://bugzil.la/583181
 user_pref("general.buildID.override",				"20100101");
 
+// PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language
+user_pref("intl.accept_languages",				"en");
+
+// PREF: Don't use OS values to determine locale, force using Firefox locale setting
+// http://kb.mozillazine.org/Intl.locale.matchOS
+user_pref("intl.locale.matchOS",				false);
 
 /******************************************************************************
  * extensions / plugins                                                       *
@@ -300,27 +323,41 @@ user_pref("general.buildID.override",				"20100101");
 user_pref("xpinstall.signatures.required",				true);
 user_pref("xpinstall.whitelist.required",				true);
 
+user_pref("extensions.update.enabled",					true);
+user_pref("extensions.update.autoUpdateDefault",		false);
+
 // Opt-out of add-on metadata updates
 // https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
-user_pref("extensions.getAddons.cache.enabled",				false);
+user_pref("extensions.getAddons.cache.enabled",			false);
 
-// Flash plugin state - never activate
+// Never activate flash and java
 user_pref("plugin.state.flash",				0);
 user_pref("plugin.state.java",				0);
+
+// PREF: Disable sending Flash Player crash reports
+user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled",	false);
+
+// PREF: When Flash crash reports are enabled, don't send the visited URL in the crash report
+user_pref("dom.ipc.plugins.reportCrashURL",							false);
 
 // disable Gnome Shell Integration
 user_pref("plugin.state.libgnome-shell-browser-plugin",		0);
 
 // disable the bundled OpenH264 video codec
 // http://forums.mozillazine.org/viewtopic.php?p=13845077&sid=28af2622e8bd8497b9113851676846b1#p13845077
-user_pref("media.gmp-provider.enabled",		false);
+user_pref("media.gmp-provider.enabled",				false);
 
 // https://wiki.mozilla.org/Firefox/Click_To_Play
 // https://blog.mozilla.org/security/2012/10/11/click-to-play-plugins-blocklist-style/
-user_pref("plugins.click_to_play",				true);
+user_pref("plugins.click_to_play",					true);
 
 // http://kb.mozillazine.org/Extensions.blocklist.enabled
 user_pref("extensions.blocklist.enabled",			true);
+
+// PREF: Ensure you have a security delay when installing add-ons (milliseconds)
+// http://kb.mozillazine.org/Disable_extension_install_delay_-_Firefox
+// http://www.squarefree.com/2004/07/01/race-conditions-in-security-dialogs/
+user_pref("security.dialog_enable_delay",			1000);
 
 /******************************************************************************
  * firefox features / components                                              *
@@ -350,6 +387,7 @@ user_pref("toolkit.telemetry.enabled",				false);
 user_pref("toolkit.telemetry.unified",				false);
 user_pref("experiments.supported",					false);
 user_pref("experiments.enabled",					false);
+user_pref("experiments.manifest.uri",				"");
 
 // PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
 // https://wiki.mozilla.org/FlyWeb/Security_scenarios
@@ -519,6 +557,9 @@ user_pref("security.insecure_password.ui.enabled",		true);
 // https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 user_pref("browser.newtab.preload",						false);
 user_pref("browser.newtabpage.enhanced",				false);
+user_pref("browser.newtabpage.compact",					true);
+//user_pref("browser.newtabpage.columns",					8);
+//user_pref("browser.newtabpage.rows",					5);
 user_pref("browser.newtabpage.directory.ping",			"");
 user_pref("browser.newtabpage.directory.source",		"data:text/plain,{}");
 //user_pref("browser.newtabpage.directory.source",		"");
