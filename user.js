@@ -80,7 +80,7 @@ user_pref("security.ssl.errorReporting.url",			"");
 user_pref("toolkit.telemetry.cachedClientID",			"");
 user_pref("toolkit.telemetry.server",					"");
 user_pref("toolkit.telemetry.archive.enabled",			false);
-user_pref("services.sync.telemetry.submissionInterval",			99999999);
+//user_pref("services.sync.telemetry.submissionInterval",99999999);
 
 user_pref("browser.tabs.crashReporting.sendReport",						false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled",				false);
@@ -106,7 +106,6 @@ user_pref("social.remote-install.enabled",			false);
 user_pref("social.toast-notifications.enabled",		false);
 user_pref("social.share.activationPanelEnabled",	false);
 
-user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",		false);
 user_pref("browser.urlbar.doubleClickSelectsAll",				false);
 user_pref("browser.urlbar.suggest.searches",					false);
 user_pref("browser.urlbar.suggest.bookmark",					true);
@@ -115,6 +114,9 @@ user_pref("browser.urlbar.suggest.openpage",					true);
 user_pref("browser.urlbar.trimURLs",							false);
 user_pref("browser.urlbar.maxRichResults",						10);
 user_pref("browser.urlbar.autocomplete.enabled",				true);
+user_pref("browser.search.suggest.enabled",						true);
+user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",		true);
+user_pref("browser.urlbar.searchSuggestionsChoice",				false);
 
 user_pref("browser.search.update",					false);
 user_pref("browser.search.countryCode",				"");
@@ -196,13 +198,13 @@ user_pref("dom.enable_user_timing",					false);
 // https://wiki.mozilla.org/HTML5_Speech_API
 // https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
 user_pref("media.webspeech.recognition.enable",			false);
-user_pref("media.webspeech.synth.enable",			false);
+user_pref("media.webspeech.synth.enable",				false);
 
 // Disable getUserMedia screen sharing
 // https://mozilla.github.io/webrtc-landing/gum_test.html
-user_pref("media.getusermedia.audiocapture.enabled",		false);
-user_pref("media.getusermedia.screensharing.enabled",		false);
-user_pref("media.getusermedia.screensharing.allowed_domains",		"");
+user_pref("media.getusermedia.audiocapture.enabled",			false);
+user_pref("media.getusermedia.screensharing.enabled",			false);
+user_pref("media.getusermedia.screensharing.allowed_domains",	"");
 
 // Disable sensor API
 // https://wiki.mozilla.org/Sensor_API
@@ -482,7 +484,7 @@ user_pref("extensions.shield-recipe-client.user_id", 	"");
 // Disable link prefetching
 // http://kb.mozillazine.org/Network.prefetch-next
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
-user_pref("network.prefetch-next",				false);
+user_pref("network.prefetch-next",					false);
 
 // https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections
 user_pref("browser.search.geoip.url",				"");
