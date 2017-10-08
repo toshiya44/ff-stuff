@@ -2,22 +2,22 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License (MIT))   *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * purposes. I removed a some of the comments too, to make it readable.       *
- * Date: 2017-09-26                                                           *
+ * Date: 2017-10-08                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
 
 // Fix font rendering
 // https://github.com/renkun-ken/MacType.Source/blob/master/README.md
-//user_pref("gfx.font_loader.delay",  											-1);
-user_pref("gfx.font_rendering.cleartype.always_use_for_content",				true);
-user_pref("gfx.font_rendering.cleartype_params.cleartype_level",				100);
-user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast",  			100);
-user_pref("gfx.font_rendering.cleartype_params.gamma",  						1400);
-user_pref("gfx.font_rendering.cleartype_params.pixel_structure",				1);
-user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 				5);
-user_pref("gfx.font_rendering.fallback.always_use_cmaps",						true);
-user_pref("gfx.use_text_smoothing_setting", 									true);
+//user_pref("gfx.font_loader.delay",  									-1);
+user_pref("gfx.font_rendering.cleartype.always_use_for_content",		true);
+user_pref("gfx.font_rendering.cleartype_params.cleartype_level",		100);
+user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast",  	100);
+user_pref("gfx.font_rendering.cleartype_params.gamma",  				1400);
+user_pref("gfx.font_rendering.cleartype_params.pixel_structure",		1);
+user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 		5);
+user_pref("gfx.font_rendering.fallback.always_use_cmaps",				true);
+user_pref("gfx.use_text_smoothing_setting", 							true);
 
 // probably due to my system local being jp, the font loading is in a disarry.
 // this is a temporary fix, until i figure out how this thingy works
@@ -36,8 +36,8 @@ user_pref("font.name.serif.x-western",			"Arial");
 // https://wiki.mozilla.org/Platform/GFX/HardwareAcceleration
 // https://www.macromedia.com/support/documentation/en/flashplayer/help/help01.html
 // https://github.com/dillbyrne/random-agent-spoofer/issues/74
-user_pref("gfx.direct2d.disabled",					true);
-user_pref("layers.acceleration.disabled",			true);
+user_pref("gfx.direct2d.disabled",				true);
+user_pref("layers.acceleration.disabled",		true);
 
 user_pref("browser.altClickSave",			true);
 // user_pref("security.nocertdb",			true);
@@ -63,10 +63,10 @@ user_pref("media.ffmpeg.enabled",			false);
 user_pref("media.block-autoplay-until-in-foreground",			true);
 
 // disable serviceworkers 
-user_pref("dom.serviceWorkers.enabled",						false);
-user_pref("dom.serviceWorkers.openWindow.enabled",			false);
-// user_pref("dom.workers.enabled",							false);
-user_pref("dom.workers.sharedWorkers.enabled",				false);
+user_pref("dom.serviceWorkers.enabled",					false);
+user_pref("dom.serviceWorkers.openWindow.enabled",		false);
+// user_pref("dom.workers.enabled",						false);
+user_pref("dom.workers.sharedWorkers.enabled",			false);
 
 user_pref("media.gmp-eme-adobe.enabled",			false);
 // user_pref("media.gmp-eme-adobe.version",			"");
@@ -75,16 +75,16 @@ user_pref("media.gmp-widevinecdm.enabled",				false);
 // user_pref("media.gmp-widevinecdm.version",			"");
 // user_pref("media.benchmark.vp9.threshold,			64);
 
-user_pref("breakpad.reportURL",							"");
-user_pref("security.ssl.errorReporting.url",			"");
-user_pref("toolkit.telemetry.cachedClientID",			"");
-user_pref("toolkit.telemetry.server",					"");
-user_pref("toolkit.telemetry.archive.enabled",			false);
+user_pref("breakpad.reportURL",						"");
+user_pref("security.ssl.errorReporting.url",		"");
+user_pref("toolkit.telemetry.cachedClientID",		"");
+user_pref("toolkit.telemetry.server",				"");
+user_pref("toolkit.telemetry.archive.enabled",	false);
 //user_pref("services.sync.telemetry.submissionInterval",99999999);
 
-user_pref("browser.tabs.crashReporting.sendReport",						false);
-user_pref("browser.crashReports.unsubmittedCheck.enabled",				false);
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit",			false);
+user_pref("browser.tabs.crashReporting.sendReport",				false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled",		false);
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit",	false);
 
 // https://archive.is/r62re
 // https://hacks.mozilla.org/2016/03/a-webassembly-milestone/
@@ -118,18 +118,20 @@ user_pref("browser.search.suggest.enabled",						true);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",		true);
 user_pref("browser.urlbar.searchSuggestionsChoice",				false);
 
-user_pref("browser.search.update",					false);
-user_pref("browser.search.countryCode",				"");
-user_pref("browser.search.region",					"");
+user_pref("browser.search.update",			false);
+user_pref("browser.search.countryCode",		"");
+user_pref("browser.search.region",			"");
 
-//user_pref("captivedetect.canonicalURL", 			"");
-//user_pref("network.captive-portal-service.enabled", false);
+user_pref("captivedetect.canonicalURL", 			"");
+user_pref("network.captive-portal-service.enabled", false);
 
 // stop autoupdating my stuff
 // http://kb.mozillazine.org/App.update.silent
-user_pref("app.update.auto",				false);
-user_pref("app.update.enabled",				false);
-user_pref("app.update.silent",				true);
+user_pref("app.update.auto",		false);
+user_pref("app.update.enabled",		false);
+user_pref("app.update.silent",		true);
+
+user_pref("browser.tabs.loadBookmarksInBackground",		true);
 
 // https://support.mozilla.org/en-US/kb/accessibility-services
 user_pref("accessibility.typeaheadfind",			true);
@@ -149,18 +151,18 @@ user_pref("geo.enabled",					false);
 // https://trac.torproject.org/projects/tor/ticket/18863
 // https://www.mozilla.org/en-US/security/advisories/mfsa2015-97/
 // https://developer.mozilla.org/docs/Mozilla/B2G_OS/API/TCPSocket
-user_pref("dom.mozTCPSocket.enabled",				false);
+user_pref("dom.mozTCPSocket.enabled",		false);
 
 // Whether JS can get information about the network/browser connection
 // Network Information API provides general information about the system's connection type (WiFi, cellular, etc.)
 // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
 // https://wicg.github.io/netinfo/#privacy-considerations
 // https://bugzilla.mozilla.org/show_bug.cgi?id=960426
-user_pref("dom.netinfo.enabled",				false);
+user_pref("dom.netinfo.enabled",			false);
 
 // Disable Web Audio API
 // https://bugzil.la/1288359
-user_pref("dom.webaudio.enabled",				false);
+user_pref("dom.webaudio.enabled",			false);
 
 // Don't reveal your internal IP
 // Check the settings with: http://net.ipcalf.com/
@@ -171,11 +173,11 @@ user_pref("media.peerconnection.ice.default_address_only",		true); // Firefox < 
 user_pref("media.peerconnection.ice.no_host",					true); // Firefox >= 51
 
 // https://redd.it/2uaent
-user_pref("media.peerconnection.video.enabled",						false);
-user_pref("media.peerconnection.turn.disable",						true);
-user_pref("media.peerconnection.use_document_iceservers",			false);
-user_pref("media.peerconnection.identity.enabled",					false);
-user_pref("media.peerconnection.identity.timeout",					1);.
+user_pref("media.peerconnection.video.enabled",					false);
+user_pref("media.peerconnection.turn.disable",					true);
+user_pref("media.peerconnection.use_document_iceservers",		false);
+user_pref("media.peerconnection.identity.enabled",				false);
+user_pref("media.peerconnection.identity.timeout",				1);.
 
 // getUserMedia
 // https://wiki.mozilla.org/Media/getUserMedia
@@ -197,8 +199,8 @@ user_pref("dom.enable_user_timing",					false);
 // https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html
 // https://wiki.mozilla.org/HTML5_Speech_API
 // https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-user_pref("media.webspeech.recognition.enable",			false);
-user_pref("media.webspeech.synth.enable",				false);
+user_pref("media.webspeech.recognition.enable",		false);
+user_pref("media.webspeech.synth.enable",			false);
 
 // Disable getUserMedia screen sharing
 // https://mozilla.github.io/webrtc-landing/gum_test.html
@@ -212,8 +214,8 @@ user_pref("device.sensors.enabled",				false);
 
 // http://kb.mozillazine.org/Browser.send_pings
 // http://kb.mozillazine.org/Browser.send_pings.require_same_host
-user_pref("browser.send_pings",					false);
-user_pref("browser.send_pings.require_same_host",		true);
+user_pref("browser.send_pings",						false);
+user_pref("browser.send_pings.require_same_host",	true);
 
 // Disable gamepad input
 // http://www.w3.org/TR/gamepad/
@@ -324,7 +326,7 @@ user_pref("intl.locale.matchOS",				false);
 // Require signatures
 user_pref("xpinstall.signatures.required",				true);
 user_pref("xpinstall.whitelist.required",				true);
-
+//user_pref("extensions.legacy.enabled",				true);
 user_pref("extensions.update.enabled",					true);
 user_pref("extensions.update.autoUpdateDefault",		false);
 
@@ -390,11 +392,9 @@ user_pref("toolkit.telemetry.unified",				false);
 user_pref("experiments.supported",					false);
 user_pref("experiments.enabled",					false);
 user_pref("experiments.manifest.uri",				"");
-
-// PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
-// https://wiki.mozilla.org/FlyWeb/Security_scenarios
-// http://www.ghacks.net/2016/07/26/firefox-flyweb
-user_pref("dom.flyweb.enabled",					false);
+user_pref("experiments.supported",					false);
+user_pref("experiments.activeExperiment",			false);
+user_pref("network.allow-experiments",				false);
 
 // Disable the UITour backend so there is no chance that a remote page
 // can use it to confuse Tor Browser users.
@@ -432,12 +432,12 @@ user_pref("datareporting.policy.dataSubmissionEnabled",		false);
 // disable heartbeat
 // https://wiki.mozilla.org/Advocacy/heartbeat
 user_pref("browser.selfsupport.url",				"");
+user_pref("browser.selfsupport.enabled",			false);
 
 // Disable firefox hello
 // https://wiki.mozilla.org/Loop
 user_pref("loop.enabled",		false);
-// https://groups.google.com/d/topic/mozilla.dev.platform/nyVkCx-_sFw/discussion
-user_pref("loop.logDomains",					false);
+user_pref("loop.logDomains",	false);
 
 // CIS 2.3.4 Block Reported Web Forgeries
 // http://kb.mozillazine.org/Browser.safebrowsing.enabled
@@ -476,6 +476,16 @@ user_pref("extensions.shield-recipe-client.enabled", 	false);
 user_pref("extensions.shield-recipe-client.api_url", 	"");
 user_pref("extensions.shield-recipe-client.user_id", 	"");
 
+user_pref("dom.flyweb.enabled",								false);
+user_pref("extensions.webcompat-reporter.enabled",			false);
+user_pref("extensions.webcompat-reporter.newIssueEndpoint",	"");
+user_pref("media.decoder-doctor.new-issue-endpoint",		"");
+
+user_pref("extensions.formautofill.experimental",			false);
+user_pref("extensions.formautofill.heuristics.enabled",		false);
+user_pref("extensions.formautofill.creditCards.enabled",	false);
+user_pref("dom.forms.autocomplete.experimental",			false);
+
 /******************************************************************************
  * automatic connections                                                      *
  *                                                                            *
@@ -499,7 +509,6 @@ user_pref("network.dns.blockDotOnion",				true);
 
 // https://wiki.mozilla.org/Privacy/Reviews/Necko
 user_pref("network.predictor.enabled",				false);
-user_pref("network.allow-experiments",				false);
 
 // https://wiki.mozilla.org/Privacy/Reviews/Necko#Principle:_Real_Choice
 user_pref("network.seer.enabled",				false);
@@ -559,7 +568,7 @@ user_pref("security.insecure_password.ui.enabled",		true);
 // https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 user_pref("browser.newtab.preload",						false);
 user_pref("browser.newtabpage.enhanced",				false);
-user_pref("browser.newtabpage.compact",					true);
+//user_pref("browser.newtabpage.compact",					false);
 //user_pref("browser.newtabpage.columns",					8);
 //user_pref("browser.newtabpage.rows",					5);
 user_pref("browser.newtabpage.directory.ping",			"");
