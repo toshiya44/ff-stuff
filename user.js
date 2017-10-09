@@ -340,6 +340,7 @@ user_pref("plugin.state.java",				0);
 
 // PREF: Disable sending Flash Player crash reports
 user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled",	false);
+user_pref("dom.ipc.plugins.flash.disable-protected-mode",			false);
 
 // PREF: When Flash crash reports are enabled, don't send the visited URL in the crash report
 user_pref("dom.ipc.plugins.reportCrashURL",							false);
