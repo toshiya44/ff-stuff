@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name          Discord Jumbo Emojis
 // @author        Toshiya
-// @version       0.0.2
-// @namespace     https://github.com/toshiya44
 // @description   Make emojis bigger in Discord
+// @namespace     https://github.com/toshiya44/ff-stuff/
 // @include       https://discordapp.com/channels/*
+// @version       0.0.2
 // @grant         none
 // ==/UserScript==
 
