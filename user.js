@@ -1,8 +1,8 @@
 /******************************************************************************
- * Originally from https://github.com/pyllyukko/user.js (MIT License (MIT))   *
+ * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * purposes. I removed a some of the comments too, to make it readable.       *
- * Date: 2017-10-08                                                           *
+ * Date: 2017-10-10                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -19,7 +19,7 @@ user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 		5);
 user_pref("gfx.font_rendering.fallback.always_use_cmaps",				true);
 user_pref("gfx.use_text_smoothing_setting", 							true);
 
-// probably due to my system local being jp, the font loading is in a disarry.
+// probably due to my system locale being jp, the fonts are in a disarry.
 // this is a temporary fix, until i figure out how this thingy works
 user_pref("font.default.x-unicode", 			"sans-serif");
 user_pref("font.default.x-western", 			"sans-serif");
@@ -57,6 +57,12 @@ user_pref("browser.newtabpage.activity-stream.topSitesCount",						24);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories.options",	"");
 user_pref("browser.newtabpage.activity-stream.telemetry",							false);
 user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint",				"");
+
+user_pref("browser.ping-centre.telemetry",				false);
+user_pref("browser.ping-centre.log",					false);
+user_pref("browser.ping-centre.staging.endpoint",		"");
+user_pref("browser.ping-centre.production.endpoint",	"");
+user_pref("browser.tabs.remote.warmup.enabled",			false);
 
 user_pref("media.autoplay.enabled",			false);
 user_pref("media.ffmpeg.enabled",			false);
@@ -136,6 +142,9 @@ user_pref("browser.tabs.loadBookmarksInBackground",		true);
 // https://support.mozilla.org/en-US/kb/accessibility-services
 user_pref("accessibility.typeaheadfind",			true);
 user_pref("accessibility.force_disabled",			1);
+
+//user_pref("security.sandbox.content.level",			3);
+//user_pref("dom.ipc.plugins.sandbox-level.flash",	2);
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
