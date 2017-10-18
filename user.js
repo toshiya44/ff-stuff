@@ -2,7 +2,7 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * purposes. I removed a some of the comments too, to make it readable.       *
- * Date: 2017-10-10                                                           *
+ * Date: 2017-10-18                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -39,9 +39,6 @@ user_pref("font.name.serif.x-western",			"Arial");
 user_pref("gfx.direct2d.disabled",				true);
 user_pref("layers.acceleration.disabled",		true);
 
-user_pref("browser.altClickSave",			true);
-// user_pref("security.nocertdb",			true);
-
 // disables scan for plugins
 user_pref("plugin.scan.plid.all",			false);
 user_pref("app.update.auto",				false);
@@ -58,6 +55,9 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories.options",
 user_pref("browser.newtabpage.activity-stream.telemetry",							false);
 user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint",				"");
 
+//due to other settings in this user.js, the thumbnails never get loaded (intentional)
+user_pref("browser.newtabpage.thumbnailPlaceholder",				true);
+
 user_pref("browser.ping-centre.telemetry",				false);
 user_pref("browser.ping-centre.log",					false);
 user_pref("browser.ping-centre.staging.endpoint",		"");
@@ -71,21 +71,23 @@ user_pref("media.block-autoplay-until-in-foreground",			true);
 // disable serviceworkers 
 user_pref("dom.serviceWorkers.enabled",					false);
 user_pref("dom.serviceWorkers.openWindow.enabled",		false);
-// user_pref("dom.workers.enabled",						false);
 user_pref("dom.workers.sharedWorkers.enabled",			false);
+// user_pref("dom.workers.enabled",						false);
 
-user_pref("media.gmp-eme-adobe.enabled",			false);
-// user_pref("media.gmp-eme-adobe.version",			"");
-
-user_pref("media.gmp-widevinecdm.enabled",				false);
-// user_pref("media.gmp-widevinecdm.version",			"");
-// user_pref("media.benchmark.vp9.threshold,			64);
+// Disable DRM content
+// https://wiki.mozilla.org/Media/EME
+user_pref("media.eme.enabled",					false);
+user_pref("media.gmp-eme-adobe.enabled",		false);
+user_pref("media.gmp-widevinecdm.enabled",		false);
+// user_pref("media.gmp-widevinecdm.version",	"");
+// user_pref("media.benchmark.vp9.threshold,	64);
+// user_pref("media.gmp-eme-adobe.version",		"");
 
 user_pref("breakpad.reportURL",						"");
 user_pref("security.ssl.errorReporting.url",		"");
 user_pref("toolkit.telemetry.cachedClientID",		"");
 user_pref("toolkit.telemetry.server",				"");
-user_pref("toolkit.telemetry.archive.enabled",	false);
+user_pref("toolkit.telemetry.archive.enabled",		false);
 //user_pref("services.sync.telemetry.submissionInterval",99999999);
 
 user_pref("browser.tabs.crashReporting.sendReport",				false);
@@ -98,10 +100,6 @@ user_pref("browser.crashReports.unsubmittedCheck.autoSubmit",	false);
 user_pref("javascript.options.wasm",				false);
 user_pref("javascript.options.wasm_baselinejit", 	false);
 
-// Disable DRM content
-// https://wiki.mozilla.org/Media/EME
-user_pref("media.eme.enabled",				false);
-
 // https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Social_API
 user_pref("social.whitelist",						"");
 user_pref("social.directories",						"");
@@ -112,21 +110,23 @@ user_pref("social.remote-install.enabled",			false);
 user_pref("social.toast-notifications.enabled",		false);
 user_pref("social.share.activationPanelEnabled",	false);
 
-user_pref("browser.urlbar.doubleClickSelectsAll",				false);
-user_pref("browser.urlbar.suggest.searches",					false);
-user_pref("browser.urlbar.suggest.bookmark",					true);
-user_pref("browser.urlbar.suggest.history",						true);
-user_pref("browser.urlbar.suggest.openpage",					true);
-user_pref("browser.urlbar.trimURLs",							false);
-user_pref("browser.urlbar.maxRichResults",						10);
-user_pref("browser.urlbar.autocomplete.enabled",				true);
-user_pref("browser.search.suggest.enabled",						true);
-user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",		true);
-user_pref("browser.urlbar.searchSuggestionsChoice",				false);
+// usability
+user_pref("browser.altClickSave",							true);
+user_pref("browser.urlbar.doubleClickSelectsAll",			false);
+user_pref("browser.urlbar.suggest.searches",				false);
+user_pref("browser.urlbar.suggest.bookmark",				true);
+user_pref("browser.urlbar.suggest.history",					true);
+user_pref("browser.urlbar.suggest.openpage",				true);
+user_pref("browser.urlbar.trimURLs",						false);
+user_pref("browser.urlbar.maxRichResults",					10);
+user_pref("browser.urlbar.autocomplete.enabled",			true);
+user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",	true);
+user_pref("browser.urlbar.searchSuggestionsChoice",			false);
 
 user_pref("browser.search.update",			false);
 user_pref("browser.search.countryCode",		"");
 user_pref("browser.search.region",			"");
+user_pref("browser.search.suggest.enabled",	false);
 
 user_pref("captivedetect.canonicalURL", 			"");
 user_pref("network.captive-portal-service.enabled", false);
@@ -138,6 +138,7 @@ user_pref("app.update.enabled",		false);
 user_pref("app.update.silent",		true);
 
 user_pref("browser.tabs.loadBookmarksInBackground",		true);
+user_pref("browser.tabs.loadBookmarksInTabs",			true);
 
 // https://support.mozilla.org/en-US/kb/accessibility-services
 user_pref("accessibility.typeaheadfind",			true);
@@ -154,7 +155,7 @@ user_pref("accessibility.force_disabled",			1);
 // disable Location-Aware Browsing
 // http://www.mozilla.org/en-US/firefox/geolocation/
 user_pref("geo.enabled",					false);
-// should i? user_pref("browser.search.geoSpecificDefaults",					false);
+// should i? user_pref("browser.search.geoSpecificDefaults",	false);
 
 // Disable dom.mozTCPSocket.enabled (raw TCP socket support)
 // https://trac.torproject.org/projects/tor/ticket/18863
@@ -182,11 +183,11 @@ user_pref("media.peerconnection.ice.default_address_only",		true); // Firefox < 
 user_pref("media.peerconnection.ice.no_host",					true); // Firefox >= 51
 
 // https://redd.it/2uaent
-user_pref("media.peerconnection.video.enabled",					false);
-user_pref("media.peerconnection.turn.disable",					true);
-user_pref("media.peerconnection.use_document_iceservers",		false);
-user_pref("media.peerconnection.identity.enabled",				false);
-user_pref("media.peerconnection.identity.timeout",				1);.
+user_pref("media.peerconnection.video.enabled",				false);
+user_pref("media.peerconnection.turn.disable",				true);
+user_pref("media.peerconnection.use_document_iceservers",	false);
+user_pref("media.peerconnection.identity.enabled",			false);
+user_pref("media.peerconnection.identity.timeout",			1);.
 
 // getUserMedia
 // https://wiki.mozilla.org/Media/getUserMedia
@@ -260,7 +261,6 @@ user_pref("webgl.disable-extensions",				true);
 user_pref("webgl.disable-fail-if-major-performance-caveat",	true);
 // PREF: When webGL is enabled, do not expose information about the graphics driver
 user_pref("webgl.enable-debug-renderer-info",		false);
-user_pref("pdfjs.enableWebGL",						false);
 
 /******************************************************************************
  * Misc                                                                       *
@@ -426,11 +426,13 @@ user_pref("browser.onboarding.updatetour",									"");
 // PREF: Enable hardening against various fingerprinting vectors (Tor Uplift project)
 // https://wiki.mozilla.org/Security/Tor_Uplift/Tracking
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1333933
-user_pref("privacy.resistFingerprinting",			true);
+user_pref("privacy.resistFingerprinting",						true);
+user_pref("privacy.resistFingerprinting.block_mozAddonManager",	true);
 
 // Disable the built-in PDF viewer (CVE-2015-2743)
 // https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-2743
-user_pref("pdfjs.disabled",					true);
+user_pref("pdfjs.disabled",			true);
+user_pref("pdfjs.enableWebGL",		false);
 
 // Disable sending of the health report
 // https://support.mozilla.org/en-US/kb/firefox-health-report-understand-your-browser-perf
@@ -441,8 +443,8 @@ user_pref("datareporting.policy.dataSubmissionEnabled",		false);
 
 // disable heartbeat
 // https://wiki.mozilla.org/Advocacy/heartbeat
-user_pref("browser.selfsupport.url",				"");
-user_pref("browser.selfsupport.enabled",			false);
+user_pref("browser.selfsupport.url",		"");
+user_pref("browser.selfsupport.enabled",	false);
 
 // Disable firefox hello
 // https://wiki.mozilla.org/Loop
@@ -471,14 +473,14 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon",		false);
 user_pref("browser.safebrowsing.downloads.remote.url",					"");
 
 // https://support.mozilla.org/en-US/kb/save-web-pages-later-pocket-firefox
-user_pref("browser.pocket.enabled",					false);
-user_pref("extensions.pocket.enabled",				false);
-user_pref("extensions.pocket.api",					"");
-user_pref("extensions.pocket.site",					"");
+user_pref("browser.pocket.enabled",		false);
+user_pref("extensions.pocket.enabled",	false);
+user_pref("extensions.pocket.api",		"");
+user_pref("extensions.pocket.site",		"");
 
 // disable screenshots addon
-user_pref("extensions.screenshots.disabled",					true);
-user_pref("extensions.screenshots.system-disabled",				true);
+user_pref("extensions.screenshots.disabled",		true);
+user_pref("extensions.screenshots.system-disabled",	true);
 
 // disable Shield telemetry
 // https://wiki.mozilla.org/Firefox/Shield
@@ -629,8 +631,9 @@ user_pref("network.stricttransportsecurity.preloadlist",	true);
 // NOTICE: OCSP adds latency (performance)
 // NOTICE: Short-lived certificates are not checked for revocation (security.pki.cert_short_lifetime_in_days, default:10)
 // CIS Version 1.2.0 October 21st, 2011 2.2.4
-//user_pref("security.OCSP.enabled",				1);
-user_pref("security.OCSP.enabled",				0);
+//https://github.com/schomery/privacy-settings/issues/40
+//https://github.com/pyllyukko/user.js/issues/17
+user_pref("security.OCSP.enabled",				1);
 
 // PREF: Enable OCSP Stapling support
 // https://en.wikipedia.org/wiki/OCSP_stapling
@@ -651,7 +654,7 @@ user_pref("security.ssl.enable_ocsp_must_staple",		true);
 // NOTICE: `security.OCSP.require` will make the connection fail when the OCSP responder is unavailable
 // NOTICE: `security.OCSP.require` is known to break browsing on some [captive portals](https://en.wikipedia.org/wiki/Captive_portal)
 user_pref("security.OCSP.require",				true);
-// user_pref("security.OCSP.require", false);
+//user_pref("security.OCSP.require", false);
 
 // PREF: Disable TLS Session Tickets
 // https://www.blackhat.com/us-13/briefings.html#NextGen
