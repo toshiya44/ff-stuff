@@ -1,8 +1,8 @@
 /******************************************************************************
  * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
- * purposes. I removed a some of the comments too, to make it readable.       *
- * Date: 2017-10-18                                                           *
+ * convenience. I removed a some of the comments too, to make it readable.    *
+ * Date: 2017-11-16                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -44,7 +44,7 @@ user_pref("plugin.scan.plid.all",			false);
 user_pref("app.update.auto",				false);
 
 user_pref("geo.wifi.uri",				"");
-user_pref("geo.wifi.logging.enabled",		false);
+user_pref("geo.wifi.logging.enabled",	false);
 
 user_pref("browser.library.activity-stream.enabled",								false);
 user_pref("browser.newtabpage.activity-stream.enabled",								false);
@@ -111,6 +111,7 @@ user_pref("social.toast-notifications.enabled",		false);
 user_pref("social.share.activationPanelEnabled",	false);
 
 // usability
+user_pref("browser.tabs.tabMinWidth",						100);
 user_pref("browser.altClickSave",							true);
 user_pref("browser.urlbar.doubleClickSelectsAll",			false);
 user_pref("browser.urlbar.suggest.searches",				false);
@@ -144,8 +145,14 @@ user_pref("browser.tabs.loadBookmarksInTabs",			true);
 user_pref("accessibility.typeaheadfind",			true);
 user_pref("accessibility.force_disabled",			1);
 
+user_pref("extensions.greasemonkey.stats.optedin",			false);
+user_pref("extensions.greasemonkey.stats.prompted",			true);
+
 //user_pref("security.sandbox.content.level",			3);
 //user_pref("dom.ipc.plugins.sandbox-level.flash",	2);
+
+user_pref("network.dnsCacheExpiration",			3600);
+user_pref("network.dnsCacheEntries",			1000);
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
@@ -205,6 +212,13 @@ user_pref("dom.event.clipboardevents.enabled",		false);
 user_pref("dom.enable_performance",					false);
 user_pref("dom.enable_user_timing",					false);
 
+// Dont let sites prevent context menus
+// user_pref("dom.event.contextmenu.enabled",false);
+// Dont let sites prevent selecting
+user_pref("dom.select_events.enable",false);
+// Dunno just disable it
+user_pref("dom.select_events.textcontrols.enabled",false);
+
 // Speech recognition
 // https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html
 // https://wiki.mozilla.org/HTML5_Speech_API
@@ -234,6 +248,12 @@ user_pref("dom.gamepad.enabled",			false);
 // Disable virtual reality devices
 // https://developer.mozilla.org/en-US/Firefox/Releases/36#Interfaces.2FAPIs.2FDOM
 user_pref("dom.vr.enabled",					false);
+user_pref("dom.vr.oculus.enabled",			false);
+user_pref("dom.vr.openvr.enabled",			false);
+user_pref("dom.vr.osvr.enabled",			false);
+user_pref("dom.vr.poseprediction.enabled",	false);
+user_pref("dom.vr.puppet.enabled",			false);
+user_pref("dom.vr.test.enabled",			false);
 
 // PREF: Disable vibrator API
 user_pref("dom.vibrator.enabled",			false);
