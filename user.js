@@ -2,7 +2,7 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * convenience. I removed a some of the comments too, to make it readable.    *
- * Date: 2017-11-16                                                           *
+ * Date: 2017-11-20                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -124,10 +124,17 @@ user_pref("browser.urlbar.autocomplete.enabled",			true);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",	true);
 user_pref("browser.urlbar.searchSuggestionsChoice",			false);
 
-user_pref("browser.search.update",			false);
-user_pref("browser.search.countryCode",		"");
-user_pref("browser.search.region",			"");
-user_pref("browser.search.suggest.enabled",	false);
+user_pref("browser.search.update",						false);
+user_pref("browser.search.countryCode",					"");
+user_pref("browser.search.region",						"");
+user_pref("browser.search.suggest.enabled",				false);
+user_pref("browser.search.context.loadInBackground",	true);
+
+user_pref("browser.display.background_color",	"#C0C0C0");
+
+user_pref("middlemouse.paste",				true);
+user_pref("middlemouse.scrollbarPosition",	true);
+user_pref("layout.word_select.eat_space_to_next_word",	false);
 
 user_pref("captivedetect.canonicalURL", 			"");
 user_pref("network.captive-portal-service.enabled", false);
@@ -140,6 +147,7 @@ user_pref("app.update.silent",		true);
 
 user_pref("browser.tabs.loadBookmarksInBackground",		true);
 user_pref("browser.tabs.loadBookmarksInTabs",			true);
+user_pref("browser.tabs.closeWindowWithLastTab",		false);
 
 // https://support.mozilla.org/en-US/kb/accessibility-services
 user_pref("accessibility.typeaheadfind",			true);
@@ -480,6 +488,7 @@ user_pref("loop.logDomains",	false);
 user_pref("browser.safebrowsing.enabled",				false);
 user_pref("browser.safebrowsing.malware.enabled",		false);
 user_pref("browser.safebrowsing.phishing.enabled",		false);
+user_pref("browser.safebrowsing.blockedURIs.enabled",	false);
 
 // Disable safe browsing remote lookups for downloaded files.
 // This leaks information to google.
