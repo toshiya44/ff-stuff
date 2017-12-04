@@ -1,0 +1,32 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* https://github.com/Timvde/UserChrome-Tweaks */
+
+.tabbrowser-tab[selected]:not([pinned])[fadein] {
+	min-width: 200px !important;
+}
+#urlbar {
+	font-size: 1.1em !important;
+	background-color:#171B1F !important;
+}
+#nav-bar {
+	max-height:30px !important;
+}
+#navigator-toolbox {
+	max-height:30px !important;
+	background-color: black !important;
+}
+#navigator-toolbox::after {
+	display: none !important;
+}
+#context-sendpagetodevice, #context-sep-sendpagetodevice,
+#context-sendlinktodevice, #context-sep-sendlinktodevice,
+#context_sendTabToDevice, #context_sendTabToDevice_separator {
+	display: none !important;
+}
+#urlbar, #nav-bar, #navigator-toolbox {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
