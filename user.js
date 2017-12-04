@@ -2,7 +2,7 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * convenience. I removed a some of the comments too, to make it readable.    *
- * Date: 2017-11-20                                                           *
+ * Date: 2017-12-04                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -51,6 +51,7 @@ user_pref("browser.newtabpage.activity-stream.enabled",								false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights",			false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites",						false);
 user_pref("browser.newtabpage.activity-stream.topSitesCount",						24);
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories",			false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories.options",	"");
 user_pref("browser.newtabpage.activity-stream.telemetry",							false);
 user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint",				"");
@@ -111,7 +112,7 @@ user_pref("social.toast-notifications.enabled",		false);
 user_pref("social.share.activationPanelEnabled",	false);
 
 // usability
-user_pref("browser.tabs.tabMinWidth",						100);
+user_pref("browser.tabs.tabMinWidth",						110);
 user_pref("browser.altClickSave",							true);
 user_pref("browser.urlbar.doubleClickSelectsAll",			false);
 user_pref("browser.urlbar.suggest.searches",				false);
@@ -129,6 +130,8 @@ user_pref("browser.search.countryCode",					"");
 user_pref("browser.search.region",						"");
 user_pref("browser.search.suggest.enabled",				false);
 user_pref("browser.search.context.loadInBackground",	true);
+user_pref("browser.search.update",						false);
+user_pref("browser.search.geoip.url",					"");
 
 user_pref("browser.display.background_color",	"#C0C0C0");
 
@@ -161,6 +164,9 @@ user_pref("extensions.greasemonkey.stats.prompted",			true);
 
 user_pref("network.dnsCacheExpiration",			3600);
 user_pref("network.dnsCacheEntries",			1000);
+
+// https://www.ghacks.net/2017/11/28/firefox-58-to-block-top-level-data-url-navigation/
+user_pref("security.data_uri.block_toplevel_data_uri_navigations",	true);
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
@@ -345,7 +351,8 @@ user_pref("media.video_stats.enabled",				false);
 // Don't reveal build ID
 // Value taken from Tor Browser
 // https://bugzil.la/583181
-user_pref("general.buildID.override",				"20100101");
+user_pref("general.buildID.override",						"20100101");
+user_pref("browser.startup.homepage_override.buildID",		"20100101");
 
 // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language
@@ -361,9 +368,9 @@ user_pref("intl.locale.matchOS",				false);
  ******************************************************************************/
 
 // Require signatures
-user_pref("xpinstall.signatures.required",				true);
+// user_pref("xpinstall.signatures.required",			true);
 user_pref("xpinstall.whitelist.required",				true);
-//user_pref("extensions.legacy.enabled",				true);
+// user_pref("extensions.legacy.enabled",				true);
 user_pref("extensions.update.enabled",					true);
 user_pref("extensions.update.autoUpdateDefault",		false);
 
@@ -395,6 +402,11 @@ user_pref("plugins.click_to_play",					true);
 
 // http://kb.mozillazine.org/Extensions.blocklist.enabled
 user_pref("extensions.blocklist.enabled",			true);
+user_pref("services.blocklist.update_enabled",		true);
+
+// PREF: Decrease system information leakage to Mozilla blocklist update servers
+// https://trac.torproject.org/projects/tor/ticket/16931
+user_pref("extensions.blocklist.url",				"https://blocklist.addons.mozilla.org/blocklist/3/%APP_ID%/%APP_VERSION%/");
 
 // PREF: Ensure you have a security delay when installing add-ons (milliseconds)
 // http://kb.mozillazine.org/Disable_extension_install_delay_-_Firefox
@@ -457,6 +469,12 @@ user_pref("browser.onboarding.updatetour",									"");
 user_pref("privacy.resistFingerprinting",						true);
 user_pref("privacy.resistFingerprinting.block_mozAddonManager",	true);
 
+// PREF: Spoof single-core CPU
+// it comes with privacy.resistFingerprinting
+// https://trac.torproject.org/projects/tor/ticket/21675
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1360039
+// user_pref("dom.maxHardwareConcurrency",				2);
+
 // Disable the built-in PDF viewer (CVE-2015-2743)
 // https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-2743
 user_pref("pdfjs.disabled",			true);
@@ -516,6 +534,7 @@ user_pref("extensions.screenshots.system-disabled",	true);
 user_pref("extensions.shield-recipe-client.enabled", 	false);
 user_pref("extensions.shield-recipe-client.api_url", 	"");
 user_pref("extensions.shield-recipe-client.user_id", 	"");
+user_pref("app.shield.optoutstudies.enabled",			false);
 
 user_pref("dom.flyweb.enabled",								false);
 user_pref("extensions.webcompat-reporter.enabled",			false);
@@ -536,9 +555,6 @@ user_pref("dom.forms.autocomplete.experimental",			false);
 // http://kb.mozillazine.org/Network.prefetch-next
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
 user_pref("network.prefetch-next",					false);
-
-// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections
-user_pref("browser.search.geoip.url",				"");
 
 // http://kb.mozillazine.org/Network.dns.disablePrefetch
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Controlling_DNS_prefetching
@@ -567,7 +583,6 @@ user_pref("media.gmp-manager.url",				"");
 // https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections
 user_pref("network.http.speculative-parallel-limit",	0);
 user_pref("browser.aboutHomeSnippets.updateUrl",		"");
-user_pref("browser.search.update",						false);
 
 /******************************************************************************
  * HTTP                                                                       *
@@ -747,10 +762,10 @@ user_pref("browser.ssl_override_behavior",			1);
 // PREF: Disable null ciphers
 user_pref("security.ssl3.rsa_null_sha",				false);
 user_pref("security.ssl3.rsa_null_md5",				false);
-user_pref("security.ssl3.ecdhe_rsa_null_sha",			false);
-user_pref("security.ssl3.ecdhe_ecdsa_null_sha",			false);
-user_pref("security.ssl3.ecdh_rsa_null_sha",			false);
-user_pref("security.ssl3.ecdh_ecdsa_null_sha",			false);
+user_pref("security.ssl3.ecdhe_rsa_null_sha",		false);
+user_pref("security.ssl3.ecdhe_ecdsa_null_sha",		false);
+user_pref("security.ssl3.ecdh_rsa_null_sha",		false);
+user_pref("security.ssl3.ecdh_ecdsa_null_sha",		false);
 
 // PREF: Disable SEED cipher
 // https://en.wikipedia.org/wiki/SEED
@@ -780,8 +795,8 @@ user_pref("security.ssl3.ecdh_ecdsa_rc4_128_sha",		false);
 user_pref("security.ssl3.ecdh_rsa_rc4_128_sha",			false);
 user_pref("security.ssl3.ecdhe_ecdsa_rc4_128_sha",		false);
 user_pref("security.ssl3.ecdhe_rsa_rc4_128_sha",		false);
-user_pref("security.ssl3.rsa_rc4_128_md5",			false);
-user_pref("security.ssl3.rsa_rc4_128_sha",			false);
+user_pref("security.ssl3.rsa_rc4_128_md5",				false);
+user_pref("security.ssl3.rsa_rc4_128_sha",				false);
 user_pref("security.tls.unrestricted_rc4_fallback",		false);
 
 // PREF: Disable 3DES (effective key size is < 128)
