@@ -1,7 +1,13 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* https://github.com/Timvde/UserChrome-Tweaks */
-
+:root {
+    --tab-selection-background-color: rgba(72, 72, 72, 100) !important;
+	--chrome-secondary-background-color: rgba(72, 72, 72, 100) !important;
+}
+:root .tabbrowser-tab[visuallyselected="true"] {
+  font-weight: 500 !important;
+} 
 .tabbrowser-tab[selected]:not([pinned])[fadein] {
 	min-width: 200px !important;
 }
@@ -21,7 +27,8 @@
 }
 #context-sendpagetodevice, #context-sep-sendpagetodevice,
 #context-sendlinktodevice, #context-sep-sendlinktodevice,
-#context_sendTabToDevice, #context_sendTabToDevice_separator {
+#context_sendTabToDevice, #context_sendTabToDevice_separator,
+#appMenu-fxa-container, #appMenu-fxa-container + toolbarseparator {
 	display: none !important;
 }
 #urlbar, #nav-bar, #navigator-toolbox {
@@ -30,3 +37,12 @@
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
+/* :root .tabbrowser-tab {
+    color: rgb(230, 230, 230) !important;
+	background-color: black !important;
+}
+:root .tabbrowser-tab[visuallyselected="true"] {
+  color: rgb(240, 240, 240) !important; 
+  background-color: rgb(75, 108, 180) !important;
+  font-weight: 500 !important;
+} */
