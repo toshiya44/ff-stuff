@@ -2,7 +2,7 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * convenience. I removed a some of the comments too, to make it readable.    *
- * Date: 2017-12-04                                                           *
+ * Date: 2017-12-08                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -20,11 +20,12 @@ user_pref("gfx.font_rendering.fallback.always_use_cmaps",				true);
 user_pref("gfx.use_text_smoothing_setting", 							true);
 
 // probably due to my system locale being jp, the fonts are in a disarry.
-// this is a temporary fix, until i figure out how this thingy works
+// i still have not figured out how this thingy works, but these prefs seem
+// to override font settings.
 user_pref("font.default.x-unicode", 			"sans-serif");
 user_pref("font.default.x-western", 			"sans-serif");
-// user_pref("font.internaluseonly.changed",		false);
 user_pref("font.name.monospace.ja", 			"Consolas");
+user_pref("font.name.monospace.x-unicode",		"Consolas");
 user_pref("font.name.monospace.x-western",		"Consolas");
 user_pref("font.name.sans-serif.ja",			"Arial");
 user_pref("font.name.sans-serif.x-unicode",		"Arial");
@@ -32,6 +33,7 @@ user_pref("font.name.sans-serif.x-western",		"Arial");
 user_pref("font.name.serif.ja",					"Arial");
 user_pref("font.name.serif.x-unicode", 			"Arial");
 user_pref("font.name.serif.x-western",			"Arial");
+// user_pref("font.internaluseonly.changed",	false);
 
 // https://wiki.mozilla.org/Platform/GFX/HardwareAcceleration
 // https://www.macromedia.com/support/documentation/en/flashplayer/help/help01.html
@@ -56,18 +58,20 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories.options",
 user_pref("browser.newtabpage.activity-stream.telemetry",							false);
 user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint",				"");
 
-//due to other settings in this user.js, the thumbnails never get loaded (intentional)
-user_pref("browser.newtabpage.thumbnailPlaceholder",				true);
+// https://support.mozilla.org/en-US/questions/973320
+// https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.pagethumbnails.capturing_disabled
+user_pref("browser.pagethumbnails.capturing_disabled",		true);
+user_pref("browser.newtabpage.thumbnailPlaceholder",		true);
 
-user_pref("browser.ping-centre.telemetry",				false);
-user_pref("browser.ping-centre.log",					false);
 user_pref("browser.ping-centre.staging.endpoint",		"");
 user_pref("browser.ping-centre.production.endpoint",	"");
+user_pref("browser.ping-centre.log",					false);
+user_pref("browser.ping-centre.telemetry",				false);
 user_pref("browser.tabs.remote.warmup.enabled",			false);
 
-user_pref("media.autoplay.enabled",			false);
-user_pref("media.ffmpeg.enabled",			false);
-user_pref("media.block-autoplay-until-in-foreground",			true);
+user_pref("media.ffmpeg.enabled",						false);
+user_pref("media.autoplay.enabled",						false);
+user_pref("media.block-autoplay-until-in-foreground",	true);
 
 // disable serviceworkers 
 user_pref("dom.serviceWorkers.enabled",					false);
@@ -78,18 +82,25 @@ user_pref("dom.workers.sharedWorkers.enabled",			false);
 // Disable DRM content
 // https://wiki.mozilla.org/Media/EME
 user_pref("media.eme.enabled",					false);
+user_pref("media.gmp-provider.enabled",			false);
 user_pref("media.gmp-eme-adobe.enabled",		false);
 user_pref("media.gmp-widevinecdm.enabled",		false);
+user_pref("media.gmp-manager.url",				"");
+user_pref("media.gmp-gmpopenh264.enabled",		false);
 // user_pref("media.gmp-widevinecdm.version",	"");
-// user_pref("media.benchmark.vp9.threshold,	64);
 // user_pref("media.gmp-eme-adobe.version",		"");
 
-user_pref("breakpad.reportURL",						"");
-user_pref("security.ssl.errorReporting.url",		"");
-user_pref("toolkit.telemetry.cachedClientID",		"");
-user_pref("toolkit.telemetry.server",				"");
-user_pref("toolkit.telemetry.archive.enabled",		false);
-//user_pref("services.sync.telemetry.submissionInterval",99999999);
+user_pref("breakpad.reportURL",								"");
+user_pref("security.ssl.errorReporting.url",				"");
+user_pref("toolkit.telemetry.cachedClientID",				"");
+user_pref("toolkit.telemetry.server",						"");
+user_pref("toolkit.telemetry.archive.enabled",				false);
+user_pref("toolkit.telemetry.bhrPing.enabled",				false);
+user_pref("toolkit.telemetry.firstShutdownPing.enabled",	false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled",	false);
+user_pref("toolkit.telemetry.newProfilePing.enabled",		false);
+user_pref("toolkit.telemetry.updatePing.enabled",			false);
+//user_pref("services.sync.telemetry.submissionInterval",	9999999999);
 
 user_pref("browser.tabs.crashReporting.sendReport",				false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled",		false);
@@ -112,35 +123,35 @@ user_pref("social.toast-notifications.enabled",		false);
 user_pref("social.share.activationPanelEnabled",	false);
 
 // usability
-user_pref("browser.tabs.tabMinWidth",						110);
+user_pref("browser.tabs.tabMinWidth",						100);
 user_pref("browser.altClickSave",							true);
+user_pref("browser.urlbar.trimURLs",						false);
+user_pref("browser.urlbar.autocomplete.enabled",			true);
 user_pref("browser.urlbar.doubleClickSelectsAll",			false);
+user_pref("browser.urlbar.maxRichResults",					10);
 user_pref("browser.urlbar.suggest.searches",				false);
 user_pref("browser.urlbar.suggest.bookmark",				true);
 user_pref("browser.urlbar.suggest.history",					true);
 user_pref("browser.urlbar.suggest.openpage",				true);
-user_pref("browser.urlbar.trimURLs",						false);
-user_pref("browser.urlbar.maxRichResults",					10);
-user_pref("browser.urlbar.autocomplete.enabled",			true);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice",	true);
 user_pref("browser.urlbar.searchSuggestionsChoice",			false);
 
-user_pref("browser.search.update",						false);
-user_pref("browser.search.countryCode",					"");
 user_pref("browser.search.region",						"");
+user_pref("browser.search.geoip.url",					"");
+user_pref("browser.search.countryCode",					"");
+user_pref("browser.search.update",						false);
 user_pref("browser.search.suggest.enabled",				false);
 user_pref("browser.search.context.loadInBackground",	true);
-user_pref("browser.search.update",						false);
-user_pref("browser.search.geoip.url",					"");
+user_pref("browser.search.geoSpecificDefaults",			false);
 
 user_pref("browser.display.background_color",	"#C0C0C0");
 
-user_pref("middlemouse.paste",				true);
-user_pref("middlemouse.scrollbarPosition",	true);
+user_pref("middlemouse.paste",							true);
+user_pref("middlemouse.scrollbarPosition",				true);
 user_pref("layout.word_select.eat_space_to_next_word",	false);
 
-user_pref("captivedetect.canonicalURL", 			"");
-user_pref("network.captive-portal-service.enabled", false);
+user_pref("captivedetect.canonicalURL",				"");
+user_pref("network.captive-portal-service.enabled",	false);
 
 // stop autoupdating my stuff
 // http://kb.mozillazine.org/App.update.silent
@@ -148,25 +159,36 @@ user_pref("app.update.auto",		false);
 user_pref("app.update.enabled",		false);
 user_pref("app.update.silent",		true);
 
-user_pref("browser.tabs.loadBookmarksInBackground",		true);
 user_pref("browser.tabs.loadBookmarksInTabs",			true);
+user_pref("browser.tabs.loadBookmarksInBackground",		true);
 user_pref("browser.tabs.closeWindowWithLastTab",		false);
 
 // https://support.mozilla.org/en-US/kb/accessibility-services
-user_pref("accessibility.typeaheadfind",			true);
 user_pref("accessibility.force_disabled",			1);
+user_pref("accessibility.typeaheadfind",			true);
 
-user_pref("extensions.greasemonkey.stats.optedin",			false);
+user_pref("view_source.tab",				false);
+user_pref("view_source.wrap_long_lines",	true);
+user_pref("view_source.syntax_highlight",	true);
+
 user_pref("extensions.greasemonkey.stats.prompted",			true);
+user_pref("extensions.greasemonkey.stats.optedin",			false);
 
-//user_pref("security.sandbox.content.level",			3);
+//user_pref("security.sandbox.content.level",		3);
 //user_pref("dom.ipc.plugins.sandbox-level.flash",	2);
 
-user_pref("network.dnsCacheExpiration",			3600);
 user_pref("network.dnsCacheEntries",			1000);
+user_pref("network.dnsCacheExpiration",			3600);
 
 // https://www.ghacks.net/2017/11/28/firefox-58-to-block-top-level-data-url-navigation/
 user_pref("security.data_uri.block_toplevel_data_uri_navigations",	true);
+
+user_pref("browser.startup.homepage_override.mstone",			"ignore");
+
+//network.http.referer.spoofSource
+//network.http.referer.hideOnionSource
+//browser.tabs.restorebutton
+//mousewheel.system_scroll_override_on_root_content.enabled;true
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
@@ -176,7 +198,6 @@ user_pref("security.data_uri.block_toplevel_data_uri_navigations",	true);
 // disable Location-Aware Browsing
 // http://www.mozilla.org/en-US/firefox/geolocation/
 user_pref("geo.enabled",					false);
-// should i? user_pref("browser.search.geoSpecificDefaults",	false);
 
 // Disable dom.mozTCPSocket.enabled (raw TCP socket support)
 // https://trac.torproject.org/projects/tor/ticket/18863
@@ -185,7 +206,7 @@ user_pref("geo.enabled",					false);
 user_pref("dom.mozTCPSocket.enabled",		false);
 
 // Whether JS can get information about the network/browser connection
-// Network Information API provides general information about the system's connection type (WiFi, cellular, etc.)
+// Network Information API provides information about the system's connection type (WiFi, cellular, etc.)
 // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
 // https://wicg.github.io/netinfo/#privacy-considerations
 // https://bugzilla.mozilla.org/show_bug.cgi?id=960426
@@ -196,9 +217,9 @@ user_pref("dom.netinfo.enabled",			false);
 user_pref("dom.webaudio.enabled",			false);
 
 // Don't reveal your internal IP
+// Disable WebRTC entirely
 // Check the settings with: http://net.ipcalf.com/
 // https://wiki.mozilla.org/Media/WebRTC/Privacy
-// Disable WebRTC entirely
 user_pref("media.peerconnection.enabled",						false);
 user_pref("media.peerconnection.ice.default_address_only",		true); // Firefox < 51
 user_pref("media.peerconnection.ice.no_host",					true); // Firefox >= 51
@@ -219,19 +240,18 @@ user_pref("media.peerconnection.identity.timeout",			1);.
 // https://wiki.mozilla.org/Security/Reviews/Firefox/NavigationTimingAPI
 // https://wiki.mozilla.org/WebAPI/Security/WebTelephony
 user_pref("media.navigator.enabled",				false);
+user_pref("beacon.enabled",							false);
 user_pref("dom.battery.enabled",					false);
 user_pref("dom.telephony.enabled",					false);
-user_pref("beacon.enabled",							false);
 user_pref("dom.event.clipboardevents.enabled",		false);
 user_pref("dom.enable_performance",					false);
 user_pref("dom.enable_user_timing",					false);
+user_pref("dom.select_events.enable",				false);
+user_pref("dom.select_events.textcontrols.enabled",	false);
+user_pref("clipboard.autocopy",						false);
 
 // Dont let sites prevent context menus
 // user_pref("dom.event.contextmenu.enabled",false);
-// Dont let sites prevent selecting
-user_pref("dom.select_events.enable",false);
-// Dunno just disable it
-user_pref("dom.select_events.textcontrols.enabled",false);
 
 // Speech recognition
 // https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html
@@ -265,9 +285,9 @@ user_pref("dom.vr.enabled",					false);
 user_pref("dom.vr.oculus.enabled",			false);
 user_pref("dom.vr.openvr.enabled",			false);
 user_pref("dom.vr.osvr.enabled",			false);
-user_pref("dom.vr.poseprediction.enabled",	false);
 user_pref("dom.vr.puppet.enabled",			false);
 user_pref("dom.vr.test.enabled",			false);
+user_pref("dom.vr.poseprediction.enabled",	false);
 
 // PREF: Disable vibrator API
 user_pref("dom.vibrator.enabled",			false);
@@ -303,9 +323,6 @@ user_pref("webgl.enable-debug-renderer-info",		false);
 
 // Disable face detection by default
 user_pref("camera.control.face_detection.enabled",		false);
-
-// http://kb.mozillazine.org/Clipboard.autocopy
-user_pref("clipboard.autocopy",					false);
 
 // Don't try to guess where i'm trying to go!!! e.g.: "http://foo" -> "http://(prefix)foo(suffix)"
 // http://www-archive.mozilla.org/docs/end-user/domain-guessing.html
@@ -368,11 +385,11 @@ user_pref("intl.locale.matchOS",				false);
  ******************************************************************************/
 
 // Require signatures
-// user_pref("xpinstall.signatures.required",			true);
 user_pref("xpinstall.whitelist.required",				true);
-// user_pref("extensions.legacy.enabled",				true);
 user_pref("extensions.update.enabled",					true);
 user_pref("extensions.update.autoUpdateDefault",		false);
+// user_pref("xpinstall.signatures.required",			true);
+// user_pref("extensions.legacy.enabled",				true);
 
 // Opt-out of add-on metadata updates
 // https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
@@ -391,10 +408,6 @@ user_pref("dom.ipc.plugins.reportCrashURL",							false);
 
 // disable Gnome Shell Integration
 user_pref("plugin.state.libgnome-shell-browser-plugin",		0);
-
-// disable the bundled OpenH264 video codec
-// http://forums.mozillazine.org/viewtopic.php?p=13845077&sid=28af2622e8bd8497b9113851676846b1#p13845077
-user_pref("media.gmp-provider.enabled",				false);
 
 // https://wiki.mozilla.org/Firefox/Click_To_Play
 // https://blog.mozilla.org/security/2012/10/11/click-to-play-plugins-blocklist-style/
@@ -450,11 +463,11 @@ user_pref("network.allow-experiments",				false);
 // can use it to confuse Tor Browser users.
 user_pref("browser.uitour.enabled",				false);
 // more uitours
-user_pref("browser.onboarding.enabled", 									false);
-user_pref("browser.onboarding.notification.max-prompt-count-per-tour",		0);
-user_pref("browser.onboarding.newtour",										"");
-user_pref("browser.onboarding.notification.tour-ids-queue",					"");
-user_pref("browser.onboarding.updatetour",									"");
+user_pref("browser.onboarding.enabled", 								false);
+user_pref("browser.onboarding.newtour",									"");
+user_pref("browser.onboarding.updatetour",								"");
+user_pref("browser.onboarding.notification.tour-ids-queue",				"");
+user_pref("browser.onboarding.notification.max-prompt-count-per-tour",	0);
 
 // PREF: Enable Firefox Tracking Protection
 // https://wiki.mozilla.org/Security/Tracking_protection
@@ -483,9 +496,9 @@ user_pref("pdfjs.enableWebGL",		false);
 // Disable sending of the health report
 // https://support.mozilla.org/en-US/kb/firefox-health-report-understand-your-browser-perf
 // https://gecko.readthedocs.org/en/latest/toolkit/components/telemetry/telemetry/preferences.html
-user_pref("datareporting.healthreport.uploadEnabled",		false);
-user_pref("datareporting.healthreport.service.enabled",		false);
-user_pref("datareporting.policy.dataSubmissionEnabled",		false);
+user_pref("datareporting.healthreport.uploadEnabled",	false);
+user_pref("datareporting.healthreport.service.enabled",	false);
+user_pref("datareporting.policy.dataSubmissionEnabled",	false);
 
 // disable heartbeat
 // https://wiki.mozilla.org/Advocacy/heartbeat
@@ -531,9 +544,9 @@ user_pref("extensions.screenshots.system-disabled",	true);
 
 // disable Shield telemetry
 // https://wiki.mozilla.org/Firefox/Shield
-user_pref("extensions.shield-recipe-client.enabled", 	false);
-user_pref("extensions.shield-recipe-client.api_url", 	"");
-user_pref("extensions.shield-recipe-client.user_id", 	"");
+user_pref("extensions.shield-recipe-client.enabled",	false);
+user_pref("extensions.shield-recipe-client.api_url",	"");
+user_pref("extensions.shield-recipe-client.user_id",	"");
 user_pref("app.shield.optoutstudies.enabled",			false);
 
 user_pref("dom.flyweb.enabled",								false);
@@ -575,12 +588,6 @@ user_pref("network.seer.enabled",				false);
 user_pref("browser.casting.enabled",				false);
 
 // https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections
-// http://andreasgal.com/2014/10/14/openh264-now-in-firefox/
-// https://bugzil.la/814169
-user_pref("media.gmp-gmpopenh264.enabled",			false);
-user_pref("media.gmp-manager.url",				"");
-
-// https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections
 user_pref("network.http.speculative-parallel-limit",	0);
 user_pref("browser.aboutHomeSnippets.updateUrl",		"");
 
@@ -594,19 +601,14 @@ user_pref("browser.aboutHomeSnippets.updateUrl",		"");
 user_pref("network.negotiate-auth.allow-insecure-ntlm-v1",	false);
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=855326
-user_pref("security.csp.experimentalEnabled",			true);
-
-// CSP https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy
+// https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy
 user_pref("security.csp.enable",				true);
+user_pref("security.csp.experimentalEnabled",	true);
 
 // Subresource integrity
 // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 // https://wiki.mozilla.org/Security/Subresource_Integrity
 user_pref("security.sri.enable",				true);
-
-// https://support.mozilla.org/en-US/questions/973320
-// https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.pagethumbnails.capturing_disabled
-user_pref("browser.pagethumbnails.capturing_disabled",		true);
 
 /******************************************************************************
  * UI related                                                                 *
@@ -626,7 +628,7 @@ user_pref("browser.newtab.preload",						false);
 user_pref("browser.newtabpage.enhanced",				false);
 //user_pref("browser.newtabpage.compact",					false);
 //user_pref("browser.newtabpage.columns",					8);
-//user_pref("browser.newtabpage.rows",					5);
+//user_pref("browser.newtabpage.rows",						8);
 user_pref("browser.newtabpage.directory.ping",			"");
 user_pref("browser.newtabpage.directory.source",		"data:text/plain,{}");
 //user_pref("browser.newtabpage.directory.source",		"");
