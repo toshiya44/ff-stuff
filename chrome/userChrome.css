@@ -2,11 +2,17 @@
 
 :root {
 	--tab-selection-background-color: rgba(80, 80, 80, 100) !important;
-	--chrome-secondary-background-color: rgba(80, 80, 80, 100) !important;
+	--chrome-secondary-background-color: rgba(0, 20, 44, 100) !important;
 }
-:root .tabbrowser-tab[visuallyselected="true"] {
-	font-weight: 500 !important;
-} 
+.tab-background[selected="true"] {
+    background-color: rgba(0, 60, 160, 100) !important;
+    background-image: none !important;
+    background-attachment: none !important;
+}
+#TabsToolbar .tabbrowser-tab[selected] {
+    color: white !important;
+    font-weight: 600 !important;
+}
 .tabbrowser-tab[selected]:not([pinned])[fadein] {
 	min-width: 200px !important;
 }
@@ -21,13 +27,12 @@
 	max-height:30px !important;
 	background-color: black !important;
 }
-#navigator-toolbox::after {
-	display: none !important;
-}
-#context-sendpagetodevice, #context-sep-sendpagetodevice,
-#context-sendlinktodevice, #context-sep-sendlinktodevice,
-#context_sendTabToDevice, #context_sendTabToDevice_separator,
-#pageAction-panel-sendToDevice, #pageAction-panel-emailLink,
+#navigator-toolbox::after, 
+#TabsToolbar .titlebar-placeholder[type="pre-tabs"], 
+#context-sendpagetodevice, #context-sep-sendpagetodevice, 
+#context-sendlinktodevice, #context-sep-sendlinktodevice, 
+#context_sendTabToDevice, #context_sendTabToDevice_separator, 
+#pageAction-panel-sendToDevice, #pageAction-panel-emailLink, 
 #appMenu-fxa-container, #appMenu-fxa-container + toolbarseparator,
 #appMenu-edit-controls, #appMenu-edit-controls + toolbarseparator {
 	display: none !important;
