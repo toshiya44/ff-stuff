@@ -2,16 +2,22 @@
 
 :root {
 	--tab-selection-background-color: rgba(80, 80, 80, 100) !important;
-	--chrome-secondary-background-color: rgba(0, 20, 44, 100) !important;
+	--chrome-secondary-background-color: rgba(10, 20, 70, 100) !important;
+}
+browser[type="content-primary"], #content, browser[type="content"] > html {
+	background-color: #323234 !important;
 }
 .tab-background[selected="true"] {
-    background-color: rgba(0, 60, 160, 100) !important;
-    background-image: none !important;
-    background-attachment: none !important;
+	background-color: rgba(64, 0, 150, 100) !important;
+	background-size: none!important;
+	background-image: none !important;
+	background-repeat: none!important;
+	background-position: none!important;
+	background-attachment: none !important;
 }
 #TabsToolbar .tabbrowser-tab[selected] {
-    color: white !important;
-    font-weight: 600 !important;
+	color: white !important;
+	font-weight: 600 !important;
 }
 .tabbrowser-tab[selected]:not([pinned])[fadein] {
 	min-width: 200px !important;
@@ -28,6 +34,7 @@
 	background-color: black !important;
 }
 #navigator-toolbox::after, 
+#widget-overflow-fixed-list::before,
 #TabsToolbar .titlebar-placeholder[type="pre-tabs"], 
 #context-sendpagetodevice, #context-sep-sendpagetodevice, 
 #context-sendlinktodevice, #context-sep-sendlinktodevice, 
@@ -43,12 +50,3 @@
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
-/* :root .tabbrowser-tab {
-	color: rgb(230, 230, 230) !important;
-	background-color: black !important;
-}
-:root .tabbrowser-tab[visuallyselected="true"] {
-	color: rgb(240, 240, 240) !important; 
-	background-color: rgb(75, 108, 180) !important;
-	font-weight: 500 !important;
-} */
