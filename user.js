@@ -2,7 +2,7 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * convenience. I removed a some of the comments too, to make it readable.    *
- * Date: 2017-12-08                                                           *
+ * Date: 2017-12-14                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -50,9 +50,10 @@ user_pref("geo.wifi.logging.enabled",	false);
 
 user_pref("browser.library.activity-stream.enabled",								false);
 user_pref("browser.newtabpage.activity-stream.enabled",								false);
-user_pref("browser.newtabpage.activity-stream.feeds.section.highlights",			false);
-user_pref("browser.newtabpage.activity-stream.feeds.topsites",						false);
 user_pref("browser.newtabpage.activity-stream.topSitesCount",						24);
+user_pref("browser.newtabpage.activity-stream.feeds.topsites",						false);
+user_pref("browser.newtabpage.activity-stream.feeds.snippets",						false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights",			false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories",			false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories.options",	"");
 user_pref("browser.newtabpage.activity-stream.telemetry",							false);
@@ -178,7 +179,7 @@ user_pref("extensions.greasemonkey.stats.optedin",			false);
 //user_pref("dom.ipc.plugins.sandbox-level.flash",	2);
 
 user_pref("network.dnsCacheEntries",			1000);
-user_pref("network.dnsCacheExpiration",			3600);
+user_pref("network.dnsCacheExpiration",			40000);
 
 // https://www.ghacks.net/2017/11/28/firefox-58-to-block-top-level-data-url-navigation/
 user_pref("security.data_uri.block_toplevel_data_uri_navigations",	true);
@@ -189,6 +190,7 @@ user_pref("browser.startup.homepage_override.mstone",			"ignore");
 //network.http.referer.hideOnionSource
 //browser.tabs.restorebutton
 //mousewheel.system_scroll_override_on_root_content.enabled;true
+//extensions.getAddons.get.url;https://services.addons.mozilla.org/%LOCALE%/firefox/api/%API_VERSION%/search/?src=firefox&appVersion=%VERSION%
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
@@ -468,6 +470,7 @@ user_pref("browser.onboarding.newtour",									"");
 user_pref("browser.onboarding.updatetour",								"");
 user_pref("browser.onboarding.notification.tour-ids-queue",				"");
 user_pref("browser.onboarding.notification.max-prompt-count-per-tour",	0);
+user_pref("browser.onboarding.shieldstudy.enabled",						false);
 
 // PREF: Enable Firefox Tracking Protection
 // https://wiki.mozilla.org/Security/Tracking_protection
@@ -548,6 +551,7 @@ user_pref("extensions.shield-recipe-client.enabled",	false);
 user_pref("extensions.shield-recipe-client.api_url",	"");
 user_pref("extensions.shield-recipe-client.user_id",	"");
 user_pref("app.shield.optoutstudies.enabled",			false);
+user_pref("extensions.ui.experiment.hidden",			false);
 
 user_pref("dom.flyweb.enabled",								false);
 user_pref("extensions.webcompat-reporter.enabled",			false);
@@ -558,6 +562,10 @@ user_pref("extensions.formautofill.experimental",			false);
 user_pref("extensions.formautofill.heuristics.enabled",		false);
 user_pref("extensions.formautofill.creditCards.enabled",	false);
 user_pref("dom.forms.autocomplete.experimental",			false);
+
+user_pref("devtools.onboarding.experiment",			"off");
+//user_pref("devtools.onboarding.experiment.flipped
+user_pref("devtools.onboarding.telemetry.logged",	false);
 
 /******************************************************************************
  * automatic connections                                                      *
@@ -626,9 +634,9 @@ user_pref("security.insecure_password.ui.enabled",		true);
 // https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 user_pref("browser.newtab.preload",						false);
 user_pref("browser.newtabpage.enhanced",				false);
-//user_pref("browser.newtabpage.compact",					false);
-//user_pref("browser.newtabpage.columns",					8);
-//user_pref("browser.newtabpage.rows",						8);
+user_pref("browser.newtabpage.compact",					true);
+user_pref("browser.newtabpage.columns",					8);
+user_pref("browser.newtabpage.rows",					8);
 user_pref("browser.newtabpage.directory.ping",			"");
 user_pref("browser.newtabpage.directory.source",		"data:text/plain,{}");
 //user_pref("browser.newtabpage.directory.source",		"");
