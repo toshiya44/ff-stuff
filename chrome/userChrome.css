@@ -1,37 +1,39 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 :root {
+	--nav-bar-height: 30px !important;
 	--tab-selection-background-color: rgba(80, 80, 80, 100) !important;
-	--chrome-secondary-background-color: rgba(10, 20, 70, 100) !important;
+	--chrome-secondary-background-color: rgba(10, 10, 60, 100) !important;
 }
 browser[type="content-primary"], #content, browser[type="content"] > html {
 	background-color: #323234 !important;
 }
+:root[uidensity=compact] #urlbar {
+	font-size: 1.1em !important;
+	max-height: 30px !important;
+	background-color:#171B1F !important;
+}
+:root[uidensity=compact] #identity-box {
+	max-width:140px;
+}
+:root[uidensity=compact] #navigator-toolbox, #nav-bar {
+	max-height:30px !important;
+}
 .tab-background[selected="true"] {
-	background-color: rgba(64, 0, 150, 100) !important;
 	background-size: none!important;
 	background-image: none !important;
 	background-repeat: none!important;
 	background-position: none!important;
 	background-attachment: none !important;
+	background-color: rgba(25, 45, 150, 100) !important;
 }
 #TabsToolbar .tabbrowser-tab[selected] {
 	color: white !important;
 	font-weight: 600 !important;
 }
 .tabbrowser-tab[selected]:not([pinned])[fadein] {
-	min-width: 200px !important;
-}
-#urlbar {
-	font-size: 1.1em !important;
-	background-color:#171B1F !important;
-}
-#nav-bar {
-	max-height:30px !important;
-}
-#navigator-toolbox {
-	max-height:30px !important;
-	background-color: black !important;
+	min-width: 180px !important;
+	max-width: 200px !important;
 }
 #navigator-toolbox::after, 
 #widget-overflow-fixed-list::before,
@@ -50,3 +52,6 @@ browser[type="content-primary"], #content, browser[type="content"] > html {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
+/* :root[uidensity=compact] #nav-bar .toolbarbutton-1 {
+	padding: 0 !important;
+} */
