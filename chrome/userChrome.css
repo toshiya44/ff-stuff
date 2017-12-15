@@ -31,6 +31,10 @@ browser[type="content-primary"], #content, browser[type="content"] > html {
 	color: white !important;
 	font-weight: 600 !important;
 }
+#navigator-toolbox {
+	max-height:30px !important;
+	background-color: black !important;
+}
 .tabbrowser-tab[selected]:not([pinned])[fadein] {
 	min-width: 180px !important;
 	max-width: 200px !important;
