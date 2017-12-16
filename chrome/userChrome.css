@@ -8,36 +8,37 @@
 browser[type="content-primary"], #content, browser[type="content"] > html {
 	background-color: #323234 !important;
 }
-:root[uidensity=compact] #urlbar {
-	font-size: 1.1em !important;
-	max-height: 30px !important;
-	background-color:#171B1F !important;
-}
 :root[uidensity=compact] #identity-box {
 	max-width:140px;
+	font-size: 0.85em !important;
 }
-:root[uidensity=compact] #navigator-toolbox, #nav-bar {
+:root[uidensity=compact] #urlbar, 
+:root[uidensity=compact] #nav-bar, 
+:root[uidensity=compact] #navigator-toolbox {
 	max-height:30px !important;
 }
 .tab-background[selected="true"] {
-	background-size: none!important;
 	background-image: none !important;
-	background-repeat: none!important;
-	background-position: none!important;
-	background-attachment: none !important;
 	background-color: rgba(25, 45, 150, 100) !important;
 }
 #TabsToolbar .tabbrowser-tab[selected] {
 	color: white !important;
 	font-weight: 600 !important;
 }
+#urlbar {
+	font-size: 1.1em !important;
+	background-color:#171B1F !important;
+}
 #navigator-toolbox {
-	max-height:30px !important;
 	background-color: black !important;
 }
 .tabbrowser-tab[selected]:not([pinned])[fadein] {
 	min-width: 180px !important;
 	max-width: 200px !important;
+}
+.tabbrowser-tab:not([selected]):not([pinned]) {
+	min-width: 90px !important;
+	max-width: 180px !important;
 }
 #navigator-toolbox::after, 
 #widget-overflow-fixed-list::before,
@@ -45,6 +46,8 @@ browser[type="content-primary"], #content, browser[type="content"] > html {
 #context-sendpagetodevice, #context-sep-sendpagetodevice, 
 #context-sendlinktodevice, #context-sep-sendlinktodevice, 
 #context_sendTabToDevice, #context_sendTabToDevice_separator, 
+#context-sendimage, #context-sendaudio, #context-sendvideo, 
+#context-setDesktopBackground, 
 #pageAction-panel-sendToDevice, #pageAction-panel-emailLink, 
 #appMenu-fxa-container, #appMenu-fxa-container + toolbarseparator,
 #appMenu-edit-controls, #appMenu-edit-controls + toolbarseparator {
@@ -59,3 +62,8 @@ browser[type="content-primary"], #content, browser[type="content"] > html {
 /* :root[uidensity=compact] #nav-bar .toolbarbutton-1 {
 	padding: 0 !important;
 } */
+
+/* 	background-size: none!important;
+	background-repeat: none!important;
+	background-position: none!important;
+	background-attachment: none !important; */
