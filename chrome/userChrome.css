@@ -2,14 +2,14 @@
 
 :root {
 	--nav-bar-height: 30px !important;
-	--tab-selection-background-color: rgba(80, 80, 80, 100) !important;
-	--chrome-secondary-background-color: rgba(10, 10, 60, 100) !important;
+	--tab-selection-background-color: rgba(85, 85, 85, 100) !important;
+	--chrome-secondary-background-color: rgba(45, 45, 45, 100) !important;
 }
 browser[type="content-primary"], #content, browser[type="content"] > html {
 	background-color: #323234 !important;
 }
 :root[uidensity=compact] #identity-box {
-	max-width:140px;
+	max-width: 140px;
 	font-size: 0.85em !important;
 }
 :root[uidensity=compact] #urlbar, 
@@ -19,7 +19,7 @@ browser[type="content-primary"], #content, browser[type="content"] > html {
 }
 .tab-background[selected="true"] {
 	background-image: none !important;
-	background-color: rgba(25, 45, 150, 100) !important;
+	background-color: rgba(85, 85, 90, 100) !important;
 }
 #TabsToolbar .tabbrowser-tab[selected] {
 	color: white !important;
@@ -34,36 +34,36 @@ browser[type="content-primary"], #content, browser[type="content"] > html {
 }
 .tabbrowser-tab[selected]:not([pinned])[fadein] {
 	min-width: 180px !important;
-	max-width: 200px !important;
-}
-.tabbrowser-tab:not([selected]):not([pinned]) {
-	min-width: 90px !important;
-	max-width: 180px !important;
 }
 #navigator-toolbox::after, 
 #widget-overflow-fixed-list::before,
 #TabsToolbar .titlebar-placeholder[type="pre-tabs"], 
+#context-sendaudio, #context-sendvideo, 
+#context-setDesktopBackground, #context-sendimage, 
 #context-sendpagetodevice, #context-sep-sendpagetodevice, 
 #context-sendlinktodevice, #context-sep-sendlinktodevice, 
 #context_sendTabToDevice, #context_sendTabToDevice_separator, 
-#context-sendimage, #context-sendaudio, #context-sendvideo, 
-#context-setDesktopBackground, 
 #pageAction-panel-sendToDevice, #pageAction-panel-emailLink, 
 #appMenu-fxa-container, #appMenu-fxa-container + toolbarseparator,
 #appMenu-edit-controls, #appMenu-edit-controls + toolbarseparator {
 	display: none !important;
 }
-#urlbar, #nav-bar, #navigator-toolbox {
-	padding-top: 0 !important;
-	padding-bottom: 0 !important;
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
+#urlbar, #urlbar-container, #nav-bar, #navigator-toolbox {
+	margin: 0 !important;
+	padding: 0 !important;
 }
 /* :root[uidensity=compact] #nav-bar .toolbarbutton-1 {
 	padding: 0 !important;
-} */
+} 
+
+.tabbrowser-tab:not([selected]):not([pinned]) {
+	min-width: 90px !important; 
+	max-width: 180px !important;
+}*/
 
 /* 	background-size: none!important;
 	background-repeat: none!important;
 	background-position: none!important;
 	background-attachment: none !important; */
+/* background-color: rgba(25, 45, 150, 100) !important; */
+/* --chrome-secondary-background-color: rgba(10, 10, 60, 100) !important; */
