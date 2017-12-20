@@ -2,7 +2,7 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * convenience. I removed a some of the comments too, to make it readable.    *
- * Date: 2017-12-14                                                           *
+ * Date: 2017-12-20                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -181,16 +181,22 @@ user_pref("extensions.greasemonkey.stats.optedin",			false);
 user_pref("network.dnsCacheEntries",			1000);
 user_pref("network.dnsCacheExpiration",			40000);
 
+user_pref("zoom.minPercent",			1);
+user_pref("zoom.maxPercent",			3000);
+
 // https://www.ghacks.net/2017/11/28/firefox-58-to-block-top-level-data-url-navigation/
 user_pref("security.data_uri.block_toplevel_data_uri_navigations",	true);
 
 user_pref("browser.startup.homepage_override.mstone",			"ignore");
+user_pref("startup.homepage_override_url",					"");
+user_pref("startup.homepage_welcome_url",					"");
+user_pref("startup.homepage_welcome_url.additional",					"");
 
 //network.http.referer.spoofSource
 //network.http.referer.hideOnionSource
 //browser.tabs.restorebutton
 //mousewheel.system_scroll_override_on_root_content.enabled;true
-//extensions.getAddons.get.url;https://services.addons.mozilla.org/%LOCALE%/firefox/api/%API_VERSION%/search/?src=firefox&appVersion=%VERSION%
+//media.mediasource.webm.enabled;true
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
@@ -519,21 +525,33 @@ user_pref("loop.logDomains",	false);
 // http://kb.mozillazine.org/Safe_browsing
 // https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work
 // http://forums.mozillazine.org/viewtopic.php?f=39&t=2711237&p=12896849#p12896849
-user_pref("browser.safebrowsing.enabled",				false);
-user_pref("browser.safebrowsing.malware.enabled",		false);
-user_pref("browser.safebrowsing.phishing.enabled",		false);
-user_pref("browser.safebrowsing.blockedURIs.enabled",	false);
-
 // Disable safe browsing remote lookups for downloaded files.
 // This leaks information to google.
 // https://www.mozilla.org/en-US/firefox/39.0/releasenotes/
 // https://wiki.mozilla.org/Security/Application_Reputation
-user_pref("browser.safebrowsing.downloads.enabled",						false);
-user_pref("browser.safebrowsing.downloads.remote.enabled", 				false);
-user_pref("browser.safebrowsing.downloads.remote.block_dangerous",		false);
-user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host",	false);
-user_pref("browser.safebrowsing.downloads.remote.block_uncommon",		false);
-user_pref("browser.safebrowsing.downloads.remote.url",					"");
+user_pref("browser.safebrowsing.enabled",										false);
+user_pref("browser.safebrowsing.malware.enabled",								false);
+user_pref("browser.safebrowsing.phishing.enabled",								false);
+user_pref("browser.safebrowsing.blockedURIs.enabled",							false);
+user_pref("browser.safebrowsing.downloads.enabled",								false);
+user_pref("browser.safebrowsing.downloads.remote.url",							"");
+user_pref("browser.safebrowsing.downloads.remote.enabled", 						false);
+user_pref("browser.safebrowsing.downloads.remote.block_uncommon",				false);
+user_pref("browser.safebrowsing.downloads.remote.block_dangerous",				false);
+user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host",			false);
+user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted",	false);
+user_pref("browser.safebrowsing.provider.google.dataSharing.enabled",			false);
+user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled",			false);
+user_pref("browser.safebrowsing.provider.google.reportURL",						"");
+user_pref("browser.safebrowsing.provider.google.updateURL",						"");
+user_pref("browser.safebrowsing.provider.google.gethashURL",					"");
+user_pref("browser.safebrowsing.provider.google.dataSharingURL",				"");
+user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL",		"");
+user_pref("browser.safebrowsing.provider.google4.reportURL",					"");
+user_pref("browser.safebrowsing.provider.google4.updateURL",					"");
+user_pref("browser.safebrowsing.provider.google4.gethashURL",					"");
+user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL",		"");
+user_pref("browser.safebrowsing.provider.google4.dataSharingURL",				"");
 
 // https://support.mozilla.org/en-US/kb/save-web-pages-later-pocket-firefox
 user_pref("browser.pocket.enabled",		false);
@@ -566,6 +584,10 @@ user_pref("dom.forms.autocomplete.experimental",			false);
 user_pref("devtools.onboarding.experiment",			"off");
 //user_pref("devtools.onboarding.experiment.flipped
 user_pref("devtools.onboarding.telemetry.logged",	false);
+
+user_pref("extensions.followonsearch.enabled",			false);
+user_pref("extensions.followonsearch.disabled",			true);
+user_pref("extensions.followonsearch.cohortSample",		"");
 
 /******************************************************************************
  * automatic connections                                                      *
