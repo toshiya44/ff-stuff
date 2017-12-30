@@ -48,22 +48,7 @@ browser[type="content-primary"], #content, browser[type="content"] > html {
 #appMenu-edit-controls, #appMenu-edit-controls + toolbarseparator {
 	display: none !important;
 }
-#urlbar, #urlbar-container, #nav-bar, #navigator-toolbox {
+#urlbar, #urlbar-container, #nav-bar {
 	margin: 0 !important;
 	padding: 0 !important;
 }
-/* :root[uidensity=compact] #nav-bar .toolbarbutton-1 {
-	padding: 0 !important;
-} 
-
-.tabbrowser-tab:not([selected]):not([pinned]) {
-	min-width: 90px !important; 
-	max-width: 180px !important;
-}*/
-
-/* 	background-size: none!important;
-	background-repeat: none!important;
-	background-position: none!important;
-	background-attachment: none !important; */
-/* background-color: rgba(25, 45, 150, 100) !important; */
-/* --chrome-secondary-background-color: rgba(10, 10, 60, 100) !important; */
