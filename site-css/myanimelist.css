@@ -1,0 +1,18 @@
+/* Apply to "myanimelist.net" domain*/
+.spaceit.textReadability {
+	width: 980px !important;
+	font-size: 1.28em !important;
+	overflow-wrap: break-word!important;
+}
+.word-break.clearfix {
+	font-size: 1.2em !important;
+	overflow-wrap: break-word !important;
+}
+.page-common #menu {
+	width: auto!important;
+}
+.page-common #myanimelist {
+	margin-left: 50px !important;
+	margin-right: 50px !important;
+	width: auto !important;
+}
