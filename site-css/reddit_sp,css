@@ -1,0 +1,40 @@
+/* Apply to "reddit.com" domain */
+/* Browse without using sub's stylesheet */
+* {
+	overflow-wrap: break-word !important;
+}
+blockquote > p::before {
+	content: "> ";
+}
+blockquote {
+	color: #00ce00 !important;
+	border-left: none !important;
+}
+div.score {
+	overflow-wrap: normal !important;
+}
+
+/* Implementation of spoiler tag with #s and /s tag */
+a[href="#s"], a[href="/s"] {
+	cursor: text;
+	color: #fff;
+	padding: 0 2px;
+	background: #000;
+	border-radius: 3px;
+}
+a[href="#s"]:hover, a[href="#s"]:active, 
+a[href="/s"]:hover, a[href="/s"]:active {
+	color: #ff0;
+}
+a[href="#s"]:after, a[href="/s"]:after {
+	content: attr(title);
+	padding: 0 8px;
+}
+a[href="#s"]:hover:after, a[href="#s"]:active:after, 
+a[href="/s"]:hover:after, a[href="/s"]:active:after {
+	color: #fff;
+}
+a[href="#s"]:after, a[href="/s"]:after {
+	color: #000;
+	background: #000;
+}
