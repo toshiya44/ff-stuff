@@ -1,4 +1,5 @@
 /* Apply to "myanimelist.net" domain*/
+/* You can make it wider */
 .spaceit.textReadability {
 	width: 980px !important;
 	font-size: 1.28em !important;
@@ -12,7 +13,7 @@
 	width: auto!important;
 }
 .page-common #myanimelist {
+	width: auto !important;
 	margin-left: 50px !important;
 	margin-right: 50px !important;
-	width: auto !important;
 }
