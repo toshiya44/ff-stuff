@@ -1,0 +1,14 @@
+/* Apply to "danbooru.donmai.us" domain */
+/* Dark theme (Incomplete) */
+.forum-post > .content {
+	border-left: 1px solid #808080;
+	padding: 0.8em;
+}
+body, header, footer, article, div, span, 
+blockquote, nav, menu, tr, td, th, table {
+	color: #ffffff;
+	background-color: #222222 !important;
+}
+#upgrade-account-notice {
+  display: none !important;
+}
