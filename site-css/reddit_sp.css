@@ -13,6 +13,9 @@ blockquote {
 div.score {
 	overflow-wrap: normal !important;
 }
+.md h1, .md h2 {
+	font-size:1.1em;
+}
 
 /* Implementation of spoiler tag with #s and /s tag */
 a[href="#s"], a[href="/s"] {
@@ -38,3 +41,4 @@ a[href="#s"]:after, a[href="/s"]:after {
 	color: #000;
 	background: #000;
 }
+/* End of spoiler tag implementation */
