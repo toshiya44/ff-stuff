@@ -2,7 +2,7 @@
  * Originally from https://github.com/pyllyukko/user.js (MIT License)         *
  * It breaks too much stuff for me so I'm adding/removing stuff for my        *
  * convenience. I removed a some of the comments too, to make it readable.    *
- * Date: 2017-12-20                                                           *
+ * Date: 2016-02-24                                                           *
  * Please notify me if there are any dupes and suggestions.                   *
  * A majority of the rules are directly imported from pyllyukko's user.js     *
  ******************************************************************************/
@@ -147,7 +147,11 @@ user_pref("browser.search.geoSpecificDefaults",			false);
 
 user_pref("browser.display.background_color",	"#C0C0C0");
 
+//disable backspace navigation to avoid accidental data loss
+user_pref("browser.backspace_action",			2);
+
 user_pref("middlemouse.paste",							true);
+user_pref("general.autoScroll",							true);
 user_pref("middlemouse.scrollbarPosition",				true);
 user_pref("layout.word_select.eat_space_to_next_word",	false);
 
@@ -167,6 +171,7 @@ user_pref("browser.tabs.closeWindowWithLastTab",		false);
 // https://support.mozilla.org/en-US/kb/accessibility-services
 user_pref("accessibility.force_disabled",			1);
 user_pref("accessibility.typeaheadfind",			true);
+user_pref("accessibility.blockautorefresh",			true);
 
 user_pref("view_source.tab",				false);
 user_pref("view_source.wrap_long_lines",	true);
@@ -187,16 +192,19 @@ user_pref("zoom.maxPercent",			3000);
 // https://www.ghacks.net/2017/11/28/firefox-58-to-block-top-level-data-url-navigation/
 user_pref("security.data_uri.block_toplevel_data_uri_navigations",	true);
 
-user_pref("browser.startup.homepage_override.mstone",			"ignore");
 user_pref("startup.homepage_override_url",					"");
 user_pref("startup.homepage_welcome_url",					"");
-user_pref("startup.homepage_welcome_url.additional",					"");
+user_pref("startup.homepage_welcome_url.additional",		"");
+user_pref("browser.startup.homepage_override.mstone",		"ignore");
+
 
 //network.http.referer.spoofSource
 //network.http.referer.hideOnionSource
 //browser.tabs.restorebutton
 //mousewheel.system_scroll_override_on_root_content.enabled;true
 //media.mediasource.webm.enabled;true
+//lockPref("extensions.systemAddon.update.url",				"");
+//gfx.color_management.enablev4;true
 
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
