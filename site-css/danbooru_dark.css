@@ -1,8 +1,13 @@
 /* Apply to "danbooru.donmai.us" domain */
 /* Dark theme (Incomplete) */
 .forum-post > .content {
-	border-left: 1px solid #808080;
 	padding: 0.8em;
+	border-left: 1px solid #808080;
+}
+div.note-box-inner-border, div.note-box {
+	opacity: 0.5 !important;
+	border: 1px solid #000;
+	background-color: #e1e1e1 !important;
 }
 body, header, footer, article, div, span, 
 blockquote, nav, menu, tr, td, th, table {
